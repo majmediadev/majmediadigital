@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAJ Media Digital — Social Media & Digital Marketing Agency</title>
+<meta name="description" content="MAJ Media Digital helps brands get seen, get remembered, and turn attention into measurable growth through social media management, content creation, ads, branding and training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2A4D;
+    --navy-deep:#071227;
+    --navy-tint:#E8EEF6;
+    --gold:#CDA434;
+    --gold-soft:#E4C262;
+    --gold-tint:#FBF1D8;
+    --gold-deep:#A9801F;
+    --white:#ffffff;
+    --paper:#FAFAF9;
+    --ink:#0B1220;
+    --ink-soft:#4A5568;
+    --ink-faint:#94A0B3;
+    --line:#E6E8EC;
+    --max:1180px;
+    --font-display:'Bricolage Grotesque','Inter',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:10px;
+    --shadow-soft:0 20px 50px -20px rgba(7,18,39,0.18);
+    --shadow-card:0 12px 30px -14px rgba(7,18,39,0.16);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:var(--font-display);
+    font-weight:700;
+    line-height:1.05;
+    margin:0;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,video{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(7,18,39,0);
+    transition:background 0.35s ease, box-shadow 0.35s ease;
+  }
+  .site-header.scrolled{
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 32px;max-width:var(--max);margin:0 auto;
+  }
+  .logo{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--navy);letter-spacing:-0.01em;}
+  .logo span{color:var(--gold);}
+  .site-header.scrolled .logo{color:var(--navy);}
+  nav.primary-nav{display:flex;gap:36px;}
+  nav.primary-nav a{
+    color:var(--ink-soft);font-size:14.5px;font-weight:500;
+    padding:6px 0;border-bottom:1px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  nav.primary-nav a:hover{color:var(--navy);border-color:var(--gold);}
+  .site-header.scrolled nav.primary-nav a{color:var(--ink-soft);}
+  .site-header.scrolled nav.primary-nav a:hover{color:var(--navy);border-color:var(--gold);}
+  .header-cta{
+    display:inline-flex;align-items:center;padding:11px 24px;
+    background:var(--gold);color:var(--navy-deep);
+    font-size:14px;font-weight:700;border-radius:999px;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .header-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:0;padding:4px;}
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{display:block;width:22px;height:2px;background:var(--navy);position:relative;}
+  .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;}
+  .nav-toggle span::before{top:-7px;}
+  .nav-toggle span::after{top:7px;}
+  .site-header.scrolled .nav-toggle span,
+  .site-header.scrolled .nav-toggle span::before,
+  .site-header.scrolled .nav-toggle span::after{background:var(--navy);}
+
+  /* ---------- Hero / Video Carousel ---------- */
+  .hero{position:relative;height:94vh;min-height:620px;overflow:hidden;background:var(--white);}
+  .hero-slides{position:absolute;inset:0;}
+  .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;pointer-events:none;}
+  .hero-slide.is-active{opacity:1;pointer-events:auto;}
+  .hero-slide video{width:100%;height:100%;object-fit:cover;}
+  .hero-slides::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 38%, rgba(255,255,255,0.35) 100%);
+    z-index:1;
+  }
+  .hero-content{
+    position:relative;z-index:2;height:100%;
+    display:flex;flex-direction:column;justify-content:center;
+    max-width:var(--max);margin:0 auto;padding:0 32px;
+  }
+  .hero-eyebrow-line{width:44px;height:1px;background:var(--gold);margin-bottom:22px;}
+  .hero-content h1{color:var(--navy);font-size:clamp(40px,5.4vw,70px);max-width:15ch;}
+  .hero-content .lede{color:var(--ink-soft);font-size:15px;font-weight:500;margin-top:18px;letter-spacing:0.02em;}
+  .hero-content .body-copy{color:var(--ink);font-size:18px;max-width:46ch;margin-top:22px;}
+  .hero-cta{
+    margin-top:36px;display:inline-flex;align-items:center;gap:10px;
+    background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:15px;
+    padding:16px 32px;width:fit-content;border-radius:999px;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .hero-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
+
+  .hero-controls{position:absolute;left:0;right:0;bottom:34px;z-index:3;display:flex;align-items:center;justify-content:center;gap:22px;}
+  .hero-arrow,.hero-playpause{
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid var(--line);background:rgba(255,255,255,0.85);
+    display:flex;align-items:center;justify-content:center;color:var(--navy);
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .hero-arrow:hover,.hero-playpause:hover{background:var(--white);border-color:var(--gold);}
+  .hero-arrow svg{width:16px;height:16px;}
+  .hero-playpause svg{width:14px;height:14px;}
+  .hero-dots{display:flex;align-items:center;gap:9px;}
+  .hero-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:none;padding:0;transition:background 0.25s ease, transform 0.25s ease;}
+  .hero-dot.is-active{background:var(--gold);transform:scale(1.35);}
+  .hero-position{position:absolute;right:32px;bottom:38px;z-index:3;color:var(--ink-soft);font-size:13px;letter-spacing:0.04em;display:none;}
+  @media(min-width:860px){.hero-position{display:block;}}
+
+  /* ---------- Section shells ---------- */
+  section{padding:100px 0;position:relative;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(32px,3.6vw,46px);color:var(--navy);}
+  .section-head .kicker{display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;}
+  .section-head p{margin-top:18px;color:var(--ink-soft);font-size:16.5px;max-width:52ch;}
+  .section-head.center p{margin-left:auto;margin-right:auto;}
+
+  /* ---------- Platform orbit band ---------- */
+  .orbit-section{background:var(--white);overflow:hidden;}
+  .orbit-section::before{
+    content:'';position:absolute;top:-20%;right:-10%;width:640px;height:640px;
+    background:radial-gradient(circle, rgba(7,18,39,0.08) 0%, rgba(7,18,39,0) 68%);
+    filter:blur(10px);pointer-events:none;
+  }
+  .orbit-section::after{
+    content:'';position:absolute;bottom:-25%;left:-10%;width:520px;height:520px;
+    background:radial-gradient(circle, rgba(205,164,52,0.14) 0%, rgba(205,164,52,0) 68%);
+    filter:blur(10px);pointer-events:none;
+  }
+  .orbit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+  .orbit-text h2{font-size:clamp(30px,3.6vw,44px);color:var(--navy);}
+  .orbit-text p{margin-top:18px;color:var(--ink-soft);font-size:16.5px;max-width:44ch;}
+  .orbit-stat-line{margin-top:30px;display:flex;gap:34px;}
+  .orbit-stat-line div strong{display:block;font-family:var(--font-display);font-weight:800;font-size:30px;color:var(--navy);}
+  .orbit-stat-line div span{font-size:13px;color:var(--ink-soft);}
+
+  .orbit-wrap{position:relative;width:360px;height:360px;margin:0 auto;}
+  .orbit-ring{position:absolute;inset:0;border:1.5px dashed rgba(7,18,39,0.22);border-radius:50%;}
+  .orbit-ring.inner{inset:44px;border-color:rgba(205,164,52,0.35);}
+  .orbit-center{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:104px;height:104px;border-radius:var(--radius-md);
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 24px 46px rgba(7,18,39,0.32);
+  }
+  .orbit-center span{font-family:var(--font-display);font-weight:800;color:var(--gold-soft);font-size:30px;}
+  .orbit-icon{
+    position:absolute;width:54px;height:54px;border-radius:16px;background:var(--white);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-card);
+  }
+  .orbit-icon svg{width:24px;height:24px;}
+  .orbit-icon.i1{top:2%;left:8%;}
+  .orbit-icon.i2{top:6%;right:2%;}
+  .orbit-icon.i3{bottom:10%;left:0;}
+  .orbit-icon.i4{bottom:2%;right:12%;}
+  .orbit-badge{
+    position:absolute;top:20px;right:-28px;
+    background:var(--white);border-radius:16px;padding:12px 18px;
+    display:flex;align-items:center;gap:10px;
+    box-shadow:var(--shadow-card);
+  }
+  .orbit-badge .dots{display:flex;}
+  .orbit-badge .dots span{
+    width:22px;height:22px;border-radius:50%;background:var(--gold-tint);border:2px solid var(--white);
+    margin-left:-8px;
+  }
+  .orbit-badge .dots span:first-child{margin-left:0;background:var(--navy-tint);}
+  .orbit-badge strong{display:block;font-size:14px;color:var(--navy);font-weight:700;}
+  .orbit-badge small{font-size:11.5px;color:var(--ink-soft);}
+  @media(max-width:900px){
+    .orbit-grid{grid-template-columns:1fr;gap:52px;}
+    .orbit-wrap{width:300px;height:300px;}
+    .orbit-badge{right:0;}
+  }
+
+  /* ---------- Logos row ---------- */
+  .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;}
+  .logos .wrap{display:flex;flex-direction:column;gap:18px;}
+  .logos-label{font-size:13.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;text-align:center;}
+  .logo-marquee{position:relative;width:100%;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .logo-track{display:flex;align-items:center;gap:64px;width:max-content;
+    animation:logoScroll 28s linear infinite;}
+  .logo-marquee:hover .logo-track{animation-play-state:paused;}
+  .logo-track img{height:44px;width:auto;max-width:150px;object-fit:contain;
+    opacity:0.75;filter:grayscale(100%);transition:opacity 0.25s ease,filter 0.25s ease;}
+  .logo-track img:hover{opacity:1;filter:grayscale(0%);}
+  @keyframes logoScroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .logo-track{animation:none;}
+  }
+  @media(max-width:600px){
+    .logo-track{gap:44px;}
+    .logo-track img{height:34px;max-width:110px;}
+  }
+
+  /* ---------- Impact card (numbers section) ---------- */
+  .stats{background:var(--white);}
+  .impact-card{
+    background:linear-gradient(135deg, #fbfbfc 0%, #f0f0f2 100%);
+    border-radius:var(--radius-lg);
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "heading paragraph"
+      "media stats"
+      "button stats";
+    column-gap:56px;
+    row-gap:36px;
+  }
+  .impact-heading{grid-area:heading;align-self:start;}
+  .impact-heading h2{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.6vw,32px);color:var(--ink);line-height:1.15;max-width:11ch;}
+  .impact-paragraph{grid-area:paragraph;align-self:start;}
+  .impact-paragraph p{font-size:14.5px;color:var(--ink-soft);line-height:1.7;max-width:40ch;}
+  .impact-media{grid-area:media;position:relative;border-radius:var(--radius-md);overflow:hidden;background:var(--navy-tint);min-height:180px;}
+  .impact-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .impact-play{
+    position:absolute;left:20px;bottom:20px;
+    width:52px;height:52px;border-radius:50%;
+    background:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(205,164,52,0.4);
+  }
+  .impact-play svg{width:18px;height:18px;fill:var(--navy-deep);margin-left:2px;}
+  .impact-cta{
+    grid-area:button;
+    display:inline-flex;align-items:center;gap:14px;
+    background:var(--navy-deep);color:var(--white);
+    font-size:14.5px;font-weight:600;
+    padding:8px 8px 8px 22px;border-radius:999px;
+    width:fit-content;align-self:end;
+    transition:background 0.2s ease;
+  }
+  .impact-cta:hover{background:var(--navy);}
+  .impact-cta .arrow-circle{
+    width:34px;height:34px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .impact-cta .arrow-circle svg{width:15px;height:15px;color:var(--navy-deep);}
+  .impact-stats{
+    grid-area:stats;
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:32px 24px;
+    align-content:start;
+  }
+  .impact-stat .num{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,3vw,34px);color:var(--ink);}
+  .impact-stat .lbl{margin-top:4px;font-size:13.5px;color:var(--ink-soft);}
+  @media(max-width:820px){
+    .impact-card{
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "heading"
+        "paragraph"
+        "media"
+        "button"
+        "stats";
+      padding:32px;row-gap:26px;
+    }
+    .impact-heading h2{max-width:none;}
+    .impact-media{min-height:220px;}
+  }
+
+  /* ---------- Philosophy / Who We Are ---------- */
+  .philosophy{background:var(--paper);}
+  .philosophy-grid{max-width:760px;margin:0 auto;text-align:left;}
+  .philosophy-copy h2{font-size:clamp(30px,3.6vw,44px);color:var(--navy);}
+  .philosophy-copy p{color:var(--ink-soft);font-size:16.5px;margin-top:20px;max-width:60ch;}
+  .philosophy-copy p.emphasis{
+    color:var(--navy);font-weight:600;font-size:18px;
+    border-left:2px solid var(--gold);padding-left:20px;margin:26px 0;
+    max-width:60ch;
+  }
+
+  /* ---------- Services ---------- */
+  .services{background:var(--white);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .service-card{
+    border-radius:var(--radius-md);padding:34px 28px;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft);}
+  .service-card.tint-navy{background:var(--navy-tint);}
+  .service-card.tint-gold{background:var(--gold-tint);}
+  .service-card.tint-paper{background:var(--paper);}
+  .service-icon{
+    width:52px;height:52px;border-radius:16px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  }
+  .service-icon svg{width:24px;height:24px;color:var(--gold-soft);}
+  .service-card h3{font-family:var(--font-display);font-weight:700;font-size:23px;color:var(--navy);}
+  .service-card p{margin-top:12px;font-size:14.5px;color:var(--ink-soft);}
+  .service-link{
+    margin-top:20px;display:inline-flex;align-items:center;gap:7px;
+    font-size:13.5px;font-weight:700;color:var(--navy);
+  }
+  .service-link svg{width:13px;height:13px;transition:transform 0.2s ease;}
+  .service-card:hover .service-link svg{transform:translateX(3px);}
+  @media(max-width:900px){.service-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.service-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Testimonials (swiper) ---------- */
+  .testimonials{background:var(--paper);}
+  .swiper-viewport{overflow:hidden;}
+  .quote-track{
+    display:flex;gap:22px;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .quote-track::-webkit-scrollbar{display:none;}
+  .quote-card{
+    flex:0 0 100%;scroll-snap-align:start;
+    background:var(--white);border-radius:var(--radius-md);padding:32px;
+    box-shadow:var(--shadow-card);
+  }
+  @media(min-width:700px){.quote-card{flex:0 0 calc(50% - 11px);}}
+  .stars{display:flex;gap:3px;margin-bottom:16px;}
+  .stars svg{width:15px;height:15px;fill:var(--gold);}
+  .quote-text{font-size:16px;color:var(--ink);line-height:1.6;}
+  .quote-attr{margin-top:20px;display:flex;align-items:center;gap:12px;}
+  .quote-avatar{
+    width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--gold-soft);
+    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;
+    font-family:var(--font-display);
+  }
+  .quote-attr span{font-size:14px;font-weight:600;color:var(--navy);}
+  .swiper-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:32px;}
+  .swiper-arrow{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--white);
+    display:flex;align-items:center;justify-content:center;color:var(--navy);
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .swiper-arrow:hover{background:var(--navy);color:var(--white);border-color:var(--navy);}
+  .swiper-arrow svg{width:16px;height:16px;}
+  .swiper-dots{display:flex;gap:8px;}
+  .swiper-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:none;padding:0;transition:background 0.25s ease, transform 0.25s ease;}
+  .swiper-dot.is-active{background:var(--gold);transform:scale(1.4);}
+
+  /* ---------- Case studies (Pinterest masonry) ---------- */
+  .case-grid{columns:3 240px;column-gap:22px;}
+  .case-card{break-inside:avoid;margin-bottom:22px;border-radius:var(--radius-md);overflow:hidden;position:relative;background:var(--paper);box-shadow:var(--shadow-card);}
+  .case-media{width:100%;position:relative;background:repeating-linear-gradient(135deg, #f6f4ee 0 14px, #ece8db 14px 28px);}
+  .case-pill{position:absolute;top:14px;right:14px;background:var(--white);color:var(--navy);font-size:11.5px;font-weight:700;padding:6px 13px;border-radius:999px;}
+  .case-overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,18,39,0) 42%, rgba(7,18,39,0.78) 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;padding:20px;opacity:0;transition:opacity 0.25s ease;
+  }
+  .case-card:hover .case-overlay{opacity:1;}
+  .case-overlay h3{font-family:var(--font-body);font-weight:700;font-size:14.5px;color:var(--white);}
+  .case-overlay p{margin-top:6px;font-size:13px;color:rgba(255,255,255,0.78);}
+  @media(max-width:760px){.case-grid{columns:2 160px;}}
+  @media(max-width:520px){.case-grid{columns:1;}}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--white);border-top:1px solid var(--line);}
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;position:relative;z-index:1;}
+  .contact-intro h2{color:var(--navy);font-size:clamp(30px,3.6vw,44px);}
+  .contact-intro p{color:var(--ink-soft);margin-top:18px;font-size:16px;max-width:46ch;}
+  .contact-detail{margin-top:34px;display:flex;flex-direction:column;gap:14px;}
+  .contact-detail a{color:var(--navy);font-size:15.5px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:color 0.2s ease;}
+  .contact-detail a:hover{color:var(--gold);}
+  .contact-detail svg{width:17px;height:17px;}
+  form.contact-form{display:flex;flex-direction:column;gap:18px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-size:13px;color:var(--ink-soft);font-weight:600;}
+  .field input,.field textarea{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);
+    color:var(--ink);font-family:inherit;font-size:15px;padding:13px 14px;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#9aa4b1;}
+  .field input:focus,.field textarea:focus{border-color:var(--gold);background:var(--white);outline:none;}
+  .field textarea{resize:vertical;min-height:88px;}
+  .submit-btn{
+    margin-top:6px;background:var(--navy);color:var(--white);font-weight:700;font-size:15px;
+    padding:15px 30px;border:none;border-radius:999px;transition:background 0.2s ease;
+  }
+  .submit-btn:hover{background:var(--navy-deep);}
+  @media(max-width:820px){.contact-inner{grid-template-columns:1fr;gap:40px;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--white);border-top:1px solid var(--line);padding:56px 0 30px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;padding-bottom:40px;}
+  .footer-logo{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--navy);}
+  .footer-logo span{color:var(--gold);}
+  .footer-tag{margin-top:12px;color:var(--ink-soft);font-size:14px;max-width:32ch;}
+  .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
+  .footer-col h4{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);font-weight:700;margin-bottom:16px;}
+  .footer-col a{display:block;color:var(--ink-soft);font-size:14.5px;margin-bottom:11px;transition:color 0.2s ease;}
+  .footer-col a:hover{color:var(--gold);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;padding-top:26px;border-top:1px solid var(--line);}
+  .footer-copy{color:#8a93a1;font-size:13px;}
+  .social-icons{display:flex;gap:14px;}
+  .social-icons a{
+    width:36px;height:36px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--navy);
+    transition:border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  }
+  .social-icons a:hover{border-color:var(--gold);color:var(--white);background:var(--gold);}
+  .social-icons svg{width:16px;height:16px;}
+
+  /* ---------- WhatsApp floating button ---------- */
+  .wa-float{
+    position:fixed;right:26px;bottom:26px;z-index:200;width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.28);transition:transform 0.2s ease;
+  }
+  .wa-float:hover{transform:scale(1.06);}
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+
+  /* ---------- Mobile nav ---------- */
+  @media(max-width:900px){
+    nav.primary-nav{
+      position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;background:var(--navy-deep);
+      flex-direction:column;padding:100px 32px 40px;gap:26px;
+      transform:translateX(100%);transition:transform 0.35s ease;
+    }
+    nav.primary-nav.is-open{transform:translateX(0);}
+    .header-cta{display:none;}
+    .nav-toggle{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="logo">MAJ <span>Media Digital</span></a>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="header-cta">Get in Touch</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HERO / VIDEO CAROUSEL ================= -->
+<section class="hero" id="home" style="padding:0;">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide is-active" data-index="0">
+      <video muted loop playsinline preload="metadata" poster="assets/video/hero-slide-1-poster.jpg">
+        <source src="assets/video/hero-slide-1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-slide" data-index="1">
+      <video muted loop playsinline preload="metadata" poster="assets/video/hero-slide-2-poster.jpg">
+        <source src="assets/video/hero-slide-2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-slide" data-index="2">
+      <video muted loop playsinline preload="metadata" poster="assets/video/hero-slide-3-poster.jpg">
+        <source src="assets/video/hero-slide-3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-slide" data-index="3">
+      <video muted loop playsinline preload="metadata" poster="assets/video/hero-slide-4-poster.jpg">
+        <source src="assets/video/hero-slide-4.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-slide" data-index="4">
+      <video muted loop playsinline preload="metadata" poster="assets/video/hero-slide-5-poster.jpg">
+        <source src="assets/video/hero-slide-5.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-slide" data-index="5">
+      <video muted loop playsinline preload="metadata" poster="assets/video/hero-slide-6-poster.jpg">
+        <source src="assets/video/hero-slide-6.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow-line"></span>
+    <h1>Top-Rated Social Media &amp; Digital Marketing Agency</h1>
+    <p class="lede">Trusted by leading local &amp; international businesses</p>
+    <p class="body-copy">We help brands get seen by the right audience online, stay remembered, and turn that attention into measurable growth.</p>
+    <a href="#contact" class="hero-cta">Get in Touch</a>
+  </div>
+
+  <div class="hero-position" id="heroPosition">01 / 06</div>
+
+  <div class="hero-controls">
+    <button class="hero-arrow" id="heroPrev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="hero-playpause" id="heroPlayPause" aria-label="Pause slideshow">
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M7 5l12 7-12 7z"/></svg>
+    </button>
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot is-active" data-goto="0" aria-label="Go to slide 1"></button>
+      <button class="hero-dot" data-goto="1" aria-label="Go to slide 2"></button>
+      <button class="hero-dot" data-goto="2" aria-label="Go to slide 3"></button>
+      <button class="hero-dot" data-goto="3" aria-label="Go to slide 4"></button>
+      <button class="hero-dot" data-goto="4" aria-label="Go to slide 5"></button>
+      <button class="hero-dot" data-goto="5" aria-label="Go to slide 6"></button>
+    </div>
+    <button class="hero-arrow" id="heroNext" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ================= PLATFORM ORBIT BAND ================= -->
+<section class="orbit-section">
+  <div class="wrap orbit-grid">
+    <div class="orbit-text">
+      <h2>Every platform. One strategy.</h2>
+      <p>We manage your presence across the channels that matter — building a system of content, ads and community that works together instead of in silos.</p>
+      <div class="orbit-stat-line">
+        <div><strong>15+</strong><span>Industries served</span></div>
+        <div><strong>1000+</strong><span>Projects delivered</span></div>
+      </div>
+      <a href="#contact" class="hero-cta" style="margin-top:32px;">Get in Touch</a>
+    </div>
+
+    <div class="orbit-wrap">
+      <div class="orbit-ring"></div>
+      <div class="orbit-ring inner"></div>
+      <div class="orbit-center"><span>M</span></div>
+
+      <div class="orbit-icon i1" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+      </div>
+      <div class="orbit-icon i2" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="1.8"><defs><linearGradient id="ig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9ce34"/><stop offset="0.5" stop-color="#ee2a7b"/><stop offset="1" stop-color="#6228d7"/></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg>
+      </div>
+      <div class="orbit-icon i3" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#111"><path d="M14 3c.3 1.9 1.6 3.4 3.5 3.9V9.4c-1.3-.1-2.5-.5-3.5-1.2v6.1a5.3 5.3 0 1 1-4.6-5.3v2.6a2.7 2.7 0 1 0 1.9 2.6V3H14Z"/></svg>
+      </div>
+      <div class="orbit-icon i4" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.36 5.13L2 22l5.1-1.44a9.9 9.9 0 0 0 4.94 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.72 14.12c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.5-.73-2.98-1.19-4.9-4.24-5.05-4.44-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.46.27-.29.6-.36.8-.36h.58c.19 0 .44-.02.66.51.24.58.8 2.02.87 2.17.07.14.12.32.02.51-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.27 1.64 2.06 1.13 1.02 2.07 1.34 2.37 1.49.29.15.46.13.63-.08.17-.2.72-.85.91-1.14.19-.29.39-.24.66-.14.27.1 1.7.81 2 .96.29.14.48.22.55.34.07.13.07.73-.17 1.4Z"/></svg>
+      </div>
+
+      <div class="orbit-badge">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div>
+          <strong>350+</strong>
+          <small>Clients served globally</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOGOS ================= -->
+<section class="logos">
+  <div class="wrap">
+    <span class="logos-label">Brands We Have Worked With</span>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <img src="assets/images/brands/school-crest.png" alt="School client logo" loading="lazy">
+        <img src="assets/images/brands/limeridge.png" alt="LimeRidge Signature Hotel logo" loading="lazy">
+        <img src="assets/images/brands/agm-media-group.png" alt="AGM Media Group logo" loading="lazy">
+        <img src="assets/images/brands/arkan-group.png" alt="Arkan Group logo" loading="lazy">
+        <img src="assets/images/brands/bottles-glasses.png" alt="Bottles & Glasses logo" loading="lazy">
+        <img src="assets/images/brands/garden-top-hotel.png" alt="Garden Top Hotel logo" loading="lazy">
+        <img src="assets/images/brands/makeup-talent-show.png" alt="Makeup Talent Show logo" loading="lazy">
+        <img src="assets/images/brands/hebmodels.png" alt="HebModels logo" loading="lazy">
+        <!-- duplicate set for seamless infinite scroll -->
+        <img src="assets/images/brands/school-crest.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/limeridge.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/agm-media-group.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/arkan-group.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/bottles-glasses.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/garden-top-hotel.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/makeup-talent-show.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/brands/hebmodels.png" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT NUMBERS ================= -->
+<section class="stats">
+  <div class="wrap">
+    <div class="impact-card">
+      <div class="impact-heading">
+        <h2>Our Impact In Numbers</h2>
+      </div>
+      <div class="impact-paragraph">
+        <p>Every campaign we run is built to move the numbers that matter — reach, engagement, and revenue. Here's what that's added up to for the brands we work with.</p>
+      </div>
+      <div class="impact-media">
+        <img src="assets/images/company.jpg" alt="The MAJ Media Digital team at work">
+        <div class="impact-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="impact-stats">
+        <div class="impact-stat">
+          <div class="num">350+</div>
+          <div class="lbl">Clients served globally</div>
+        </div>
+        <div class="impact-stat">
+          <div class="num">120M+</div>
+          <div class="lbl">Views generated across platforms</div>
+        </div>
+        <div class="impact-stat">
+          <div class="num">15+</div>
+          <div class="lbl">Industries served</div>
+        </div>
+        <div class="impact-stat">
+          <div class="num">1000+</div>
+          <div class="lbl">Projects delivered</div>
+        </div>
+      </div>
+      <a href="#contact" class="impact-cta">
+        Get in Touch
+        <span class="arrow-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHILOSOPHY / WHO WE ARE ================= -->
+<section class="philosophy" id="about">
+  <div class="wrap philosophy-grid">
+    <div class="philosophy-copy">
+      <h2>Who We Are</h2>
+      <p>MAJ Media Digital is a complete social media agency helping brands win online. From social media management and content creation to paid advertising and digital strategy, we combine creativity, strategy, and data to help businesses get visibility that converts.</p>
+      <p>We understand that great content is only one part of the equation, and that social media success goes beyond just posting. Our focus is creating digital strategies that get attention, build credibility, and drive measurable results.</p>
+      <p class="emphasis">We don't just manage social media. We take the stress off your hands and build a digital presence that moves the business forward.</p>
+      <a href="#contact" class="hero-cta" style="background:var(--navy);color:var(--white);">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Our Services</span>
+      <h2>Everything a growing brand needs online</h2>
+    </div>
+    <div class="service-grid">
+
+      <div class="service-card tint-navy">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.7M8.6 13.4l6.8 3.7"/></svg></div>
+        <h3>Social Media Management</h3>
+        <p>Strategy, content creation, campaign planning, ads setup and more. It's not just posting alone.</p>
+        <a href="#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+
+      <div class="service-card tint-gold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 9l4-2v10l-4-2"/></svg></div>
+        <h3>Content Creation</h3>
+        <p>Custom, engaging content fit to your brand's goal and audience — you pick the date, we handle production.</p>
+        <a href="#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+
+      <div class="service-card tint-paper">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-2.5-7.5L3 11z"/></svg></div>
+        <h3>Ads Management</h3>
+        <p>We plan and manage campaigns that target the right audience while controlling costs and optimizing results.</p>
+        <a href="#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+
+      <div class="service-card tint-paper">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></div>
+        <h3>Branding</h3>
+        <p>Clean, memorable visual identity and brand assets that build consistency, credibility, and recognition.</p>
+        <a href="#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+
+      <div class="service-card tint-gold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4-8 4-8-4 8-4Z"/><path d="M4 11v6l8 4 8-4v-6"/></svg></div>
+        <h3>Training — MAJ Media Academy</h3>
+        <p>Practical social media training through private sessions and cohort programs for individuals, teams, and businesses.</p>
+        <a href="#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+
+      <div class="service-card tint-navy">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>Ready to start?</h3>
+        <p>Tell us about your brand and where you want it to go — we'll map out the right mix of services.</p>
+        <a href="#contact" class="service-link">Get in Touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Testimonials</span>
+      <h2>What Our Clients Say</h2>
+    </div>
+    <div class="swiper-viewport">
+      <div class="quote-track" id="quoteTrack">
+        <div class="quote-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+          </div>
+          <p class="quote-text">Working with MAJ Media Digital has been quite fulfilling. Our brand's social media has gone from zero to thousands with their help. We continue to trust in the good work.</p>
+          <div class="quote-attr"><div class="quote-avatar">V</div><span>Vivian</span></div>
+        </div>
+        <div class="quote-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+          </div>
+          <p class="quote-text">Previously, we had no presence online and on Google. But with MAJ Media Digital, we have a proper listing that brings visits and bookings from social media. My favourite part is the quality images and videos we now have.</p>
+          <div class="quote-attr"><div class="quote-avatar">S</div><span>Seun</span></div>
+        </div>
+        <div class="quote-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+          </div>
+          <p class="quote-text">It's been 2 productive years with MAJ Media Digital and my brand has continued to grow immensely. From 30 to 12k followers on TikTok, I have never doubted their performance. Every service is carried out with intentionality.</p>
+          <div class="quote-attr"><div class="quote-avatar">E</div><span>Esther</span></div>
+        </div>
+        <div class="quote-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
+          </div>
+          <p class="quote-text">MAJ Media Digital does not joke with my brand at all. Every content does well and my ads have never converted this well before. Time was taken to fully understand my brand before starting.</p>
+          <div class="quote-attr"><div class="quote-avatar">U</div><span>Uche</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-controls">
+      <button class="swiper-arrow" id="quotePrev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="swiper-dots" id="quoteDots">
+        <button class="swiper-dot is-active" data-goto="0" aria-label="Go to testimonial 1"></button>
+        <button class="swiper-dot" data-goto="1" aria-label="Go to testimonial 2"></button>
+        <button class="swiper-dot" data-goto="2" aria-label="Go to testimonial 3"></button>
+        <button class="swiper-dot" data-goto="3" aria-label="Go to testimonial 4"></button>
+      </div>
+      <button class="swiper-arrow" id="quoteNext" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASE STUDIES ================= -->
+<section id="case-studies">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Our Work</span>
+      <h2>Latest Case Studies</h2>
+      <p>See what real results we've gotten for our clients look like. Collated from our work done over the years.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-card"><div class="case-media" style="aspect-ratio:4/5;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+      <div class="case-card"><div class="case-media" style="aspect-ratio:1/1;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+      <div class="case-card"><div class="case-media" style="aspect-ratio:3/4;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+      <div class="case-card"><div class="case-media" style="aspect-ratio:4/5;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+      <div class="case-card"><div class="case-media" style="aspect-ratio:1/1;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+      <div class="case-card"><div class="case-media" style="aspect-ratio:3/4;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">MAJ <span>Media Digital</span></div>
+        <p class="footer-tag">We help brands get seen, stay remembered, and turn attention into measurable growth.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#case-studies">Case Studies</a>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <a href="mailto:hello@majmediadigital.com">hello@majmediadigital.com</a>
+          <a href="https://wa.me/000000000000" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 MAJ Media Digital. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.3 1.9 1.6 3.4 3.5 3.9V9.4c-1.3-.1-2.5-.5-3.5-1.2v6.1a5.3 5.3 0 1 1-4.6-5.3v2.6a2.7 2.7 0 1 0 1.9 2.6V3H14Z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="10" x2="7" y2="17"/><line x1="7" y1="7" x2="7" y2="7"/><path d="M11 17v-4.5a2.2 2.2 0 0 1 4.4 0V17"/><line x1="11" y1="10" x2="11" y2="17"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v10M9 13h4"/><circle cx="12" cy="12" r="9"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/000000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.36 5.13L2 22l5.1-1.44a9.9 9.9 0 0 0 4.94 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.72 14.12c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.5-.73-2.98-1.19-4.9-4.24-5.05-4.44-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.46.27-.29.6-.36.8-.36h.58c.19 0 .44-.02.66.51.24.58.8 2.02.87 2.17.07.14.12.32.02.51-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.27 1.64 2.06 1.13 1.02 2.07 1.34 2.37 1.49.29.15.46.13.63-.08.17-.2.72-.85.91-1.14.19-.29.39-.24.66-.14.27.1 1.7.81 2 .96.29.14.48.22.55.34.07.13.07.73-.17 1.4Z"/></svg>
+</a>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  navToggle.addEventListener('click', () => {
+    const open = primaryNav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => primaryNav.classList.remove('is-open')));
+
+  (function heroCarousel(){
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    const dots = Array.from(document.querySelectorAll('.hero-dot'));
+    const prevBtn = document.getElementById('heroPrev');
+    const nextBtn = document.getElementById('heroNext');
+    const playPauseBtn = document.getElementById('heroPlayPause');
+    const iconPlay = document.getElementById('iconPlay');
+    const iconPause = document.getElementById('iconPause');
+    const positionLabel = document.getElementById('heroPosition');
+    const total = slides.length;
+    const SLIDE_DURATION = 7000;
+    let current = 0, isPlaying = true, timer = null;
+
+    function playVideo(i){ const v = slides[i].querySelector('video'); if (v) { v.currentTime = 0; v.play().catch(()=>{}); } }
+    function pauseVideo(i){ const v = slides[i].querySelector('video'); if (v) v.pause(); }
+
+    function goTo(index){
+      pauseVideo(current);
+      slides[current].classList.remove('is-active');
+      dots[current].classList.remove('is-active');
+      current = (index + total) % total;
+      slides[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+      positionLabel.textContent = String(current+1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+      if (isPlaying) playVideo(current);
+      resetTimer();
+    }
+    function next(){ goTo(current+1); }
+    function prev(){ goTo(current-1); }
+    function resetTimer(){ clearInterval(timer); if (isPlaying) timer = setInterval(next, SLIDE_DURATION); }
+    function setPlaying(state){
+      isPlaying = state;
+      if (isPlaying){ playVideo(current); iconPause.style.display='block'; iconPlay.style.display='none'; playPauseBtn.setAttribute('aria-label','Pause slideshow'); }
+      else { pauseVideo(current); iconPause.style.display='none'; iconPlay.style.display='block'; playPauseBtn.setAttribute('aria-label','Play slideshow'); }
+      resetTimer();
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+    playPauseBtn.addEventListener('click', () => setPlaying(!isPlaying));
+    dots.forEach((dot,i) => dot.addEventListener('click', () => goTo(i)));
+
+    positionLabel.textContent = '01 / ' + String(total).padStart(2,'0');
+    playVideo(current);
+    resetTimer();
+  })();
+
+  (function testimonialSwiper(){
+    const track = document.getElementById('quoteTrack');
+    const cards = Array.from(track.querySelectorAll('.quote-card'));
+    const dots = Array.from(document.querySelectorAll('.swiper-dot'));
+    const prevBtn = document.getElementById('quotePrev');
+    const nextBtn = document.getElementById('quoteNext');
+    let current = 0;
+
+    function goTo(index){
+      current = Math.max(0, Math.min(index, cards.length - 1));
+      cards[current].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
+      dots.forEach((d,i) => d.classList.toggle('is-active', i === current));
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot,i) => dot.addEventListener('click', () => goTo(i)));
+
+    // Keep dots in sync when the person swipes by hand
+    let scrollTimer = null;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const trackCenter = track.scrollLeft + track.clientWidth / 2;
+        let closest = 0, closestDist = Infinity;
+        cards.forEach((card, i) => {
+          const dist = Math.abs((card.offsetLeft + card.offsetWidth / 2) - trackCenter);
+          if (dist < closestDist){ closestDist = dist; closest = i; }
+        });
+        current = closest;
+        dots.forEach((d,i) => d.classList.toggle('is-active', i === current));
+      }, 100);
+    });
+  })();
+</script>
+
+</body>
+</html>
