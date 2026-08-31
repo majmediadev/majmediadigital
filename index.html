@@ -4,7 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAJ Media Digital — Social Media & Digital Marketing Agency</title>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
 <meta name="description" content="MAJ Media Digital helps brands get seen, get remembered, and turn attention into measurable growth through social media management, content creation, ads, branding and training.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MAJ Media Digital — Social Media & Digital Marketing Agency">
+<meta property="og:description" content="MAJ Media Digital helps brands get seen, get remembered, and turn attention into measurable growth through social media management, content creation, ads, branding and training.">
+<meta property="og:image" content="https://majmediadigital.com/logo.jpg">
+<meta property="og:url" content="https://majmediadigital.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MAJ Media Digital — Social Media & Digital Marketing Agency">
+<meta name="twitter:description" content="MAJ Media Digital helps brands get seen, get remembered, and turn attention into measurable growth through social media management, content creation, ads, branding and training.">
+<meta name="twitter:image" content="https://majmediadigital.com/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -75,8 +85,9 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:22px 32px;max-width:var(--max);margin:0 auto;
   }
-  .logo{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--navy);letter-spacing:-0.01em;}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--navy);letter-spacing:-0.01em;}
   .logo span{color:var(--gold);}
+  .logo-img{width:34px;height:34px;object-fit:cover;border-radius:8px;flex-shrink:0;}
   .site-header.scrolled .logo{color:var(--navy);}
   nav.primary-nav{display:flex;gap:36px;}
   nav.primary-nav a{
@@ -95,6 +106,7 @@
   }
   .header-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
   .nav-toggle{display:none;background:none;border:0;padding:4px;}
+  nav.primary-nav a.mobile-nav-cta{display:none;}
   .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{display:block;width:22px;height:2px;background:var(--navy);position:relative;}
   .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;}
   .nav-toggle span::before{top:-7px;}
@@ -418,8 +430,9 @@
   /* ---------- Footer ---------- */
   footer{background:var(--white);border-top:1px solid var(--line);padding:56px 0 30px;}
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;padding-bottom:40px;}
-  .footer-logo{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--navy);}
+  .footer-logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--navy);}
   .footer-logo span{color:var(--gold);}
+  .footer-logo-img{width:30px;height:30px;object-fit:cover;border-radius:8px;flex-shrink:0;}
   .footer-tag{margin-top:12px;color:var(--ink-soft);font-size:14px;max-width:32ch;}
   .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
   .footer-col h4{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);font-weight:700;margin-bottom:16px;}
@@ -492,7 +505,7 @@
 
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="#home" class="logo">MAJ <span>Media Digital</span></a>
+    <a href="#home" class="logo"><img src="logo.jpg" alt="MAJ Media Digital logo" class="logo-img">MAJ <span>Media Digital</span></a>
     <nav class="primary-nav" id="primaryNav">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
@@ -838,7 +851,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <div class="footer-logo">MAJ <span>Media Digital</span></div>
+        <div class="footer-logo"><img src="logo.jpg" alt="MAJ Media Digital logo" class="footer-logo-img">MAJ <span>Media Digital</span></div>
         <p class="footer-tag">We help brands get seen, stay remembered, and turn attention into measurable growth.</p>
       </div>
       <div class="footer-cols">
