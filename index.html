@@ -445,16 +445,46 @@
   .wa-float:hover{transform:scale(1.06);}
   .wa-float svg{width:28px;height:28px;fill:#fff;}
 
-  /* ---------- Mobile nav ---------- */
+  /* ---------- Mobile nav (top dropdown) ---------- */
   @media(max-width:900px){
     nav.primary-nav{
-      position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;background:var(--navy-deep);
-      flex-direction:column;padding:100px 32px 40px;gap:26px;
-      transform:translateX(100%);transition:transform 0.35s ease;
+      position:fixed;top:0;left:0;right:0;width:100%;max-width:none;
+      background:var(--white);
+      flex-direction:column;align-items:stretch;gap:0;
+      padding:76px 24px 18px;
+      transform:translateY(-100%);transition:transform 0.35s ease;
+      box-shadow:0 20px 40px -20px rgba(7,18,39,0.25);
+      border-bottom:3px solid var(--gold);
+      max-height:100vh;overflow-y:auto;
     }
-    nav.primary-nav.is-open{transform:translateX(0);}
+    nav.primary-nav.is-open{transform:translateY(0);}
+    nav.primary-nav a{
+      color:var(--navy);font-size:16px;font-weight:600;
+      padding:9px 0;border-bottom:1px solid var(--navy-tint);
+    }
+    nav.primary-nav a:last-of-type{border-bottom:none;}
+    nav.primary-nav a.mobile-nav-cta{
+      display:inline-flex;align-items:center;justify-content:space-between;gap:14px;
+      align-self:center;width:fit-content;
+      background:var(--navy-deep);color:var(--white);
+      font-weight:700;font-size:16px;
+      padding:5px 5px 5px 22px;border-radius:999px;
+      margin-top:10px;
+    }
+    .mobile-nav-cta .arrow-circle{
+      width:40px;height:40px;border-radius:50%;background:var(--gold);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    }
+    .mobile-nav-cta .arrow-circle svg{width:18px;height:18px;}
     .header-cta{display:none;}
-    .nav-toggle{display:block;}
+    .nav-toggle{display:block;position:relative;z-index:101;}
+    .nav-toggle.is-active span{background:transparent;}
+    .nav-toggle.is-active span::before{transform:rotate(45deg);top:0;}
+    .nav-toggle.is-active span::after{transform:rotate(-45deg);top:0;}
+    .site-header.scrolled .nav-toggle.is-active span::before,
+    .site-header.scrolled .nav-toggle.is-active span::after,
+    .nav-toggle.is-active span::before,
+    .nav-toggle.is-active span::after{background:var(--navy);}
   }
 </style>
 </head>
@@ -468,7 +498,13 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#case-studies">Case Studies</a>
+      <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
       <a href="#contact">Contact</a>
+      <a href="#contact" class="mobile-nav-cta">Get in Touch
+        <span class="arrow-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg>
+        </span>
+      </a>
     </nav>
     <a href="#contact" class="header-cta">Get in Touch</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
@@ -691,7 +727,7 @@
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4-8 4-8-4 8-4Z"/><path d="M4 11v6l8 4 8-4v-6"/></svg></div>
         <h3>Training — MAJ Media Academy</h3>
         <p>Practical social media training through private sessions and cohort programs for individuals, teams, and businesses.</p>
-        <a href="#contact" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
 
       <div class="service-card tint-navy">
@@ -812,6 +848,7 @@
           <a href="#services">Services</a>
           <a href="#about">About</a>
           <a href="#case-studies">Case Studies</a>
+          <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
         </div>
         <div class="footer-col">
           <h4>Get in touch</h4>
@@ -844,9 +881,13 @@
   const primaryNav = document.getElementById('primaryNav');
   navToggle.addEventListener('click', () => {
     const open = primaryNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-active', open);
     navToggle.setAttribute('aria-expanded', open);
   });
-  primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => primaryNav.classList.remove('is-open')));
+  primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    primaryNav.classList.remove('is-open');
+    navToggle.classList.remove('is-active');
+  }));
 
   (function heroCarousel(){
     const slides = Array.from(document.querySelectorAll('.hero-slide'));
