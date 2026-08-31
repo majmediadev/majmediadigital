@@ -110,12 +110,12 @@
     display:flex;flex-direction:column;align-items:center;text-align:center;
     max-width:var(--max);margin:0 auto;padding:0 32px;
   }
-  .hero-eyebrow-line{width:44px;height:1px;background:var(--gold);margin-bottom:22px;}
+  .hero-eyebrow-line{width:44px;height:1px;background:var(--gold);margin-bottom:16px;}
   .hero-content h1{color:var(--navy);font-size:clamp(40px,5.4vw,70px);max-width:16ch;}
-  .hero-content .lede{color:var(--ink-soft);font-size:15px;font-weight:500;margin-top:18px;letter-spacing:0.02em;}
-  .hero-content .body-copy{color:var(--ink);font-size:18px;max-width:46ch;margin-top:22px;}
+  .hero-content .lede{color:var(--ink-soft);font-size:15px;font-weight:500;margin-top:14px;letter-spacing:0.02em;}
+  .hero-content .body-copy{color:var(--ink);font-size:18px;max-width:46ch;margin-top:16px;}
   .hero-cta{
-    margin-top:36px;display:inline-flex;align-items:center;gap:10px;
+    margin-top:24px;display:inline-flex;align-items:center;gap:10px;
     background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:15px;
     padding:16px 32px;width:fit-content;border-radius:999px;
     transition:background 0.2s ease, transform 0.2s ease;
@@ -159,8 +159,13 @@
   .hero-position{position:absolute;right:24px;bottom:28px;z-index:3;color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:0.04em;display:none;}
   @media(min-width:860px){.hero-position{display:block;}}
   @media(max-width:640px){
-    .hero{padding-top:128px;}
-    .hero-media{margin-top:44px;padding:0 20px;}
+    .hero{padding-top:104px;padding-bottom:56px;}
+    .hero-eyebrow-line{margin-bottom:12px;}
+    .hero-content h1{font-size:clamp(32px,9vw,44px);}
+    .hero-content .lede{margin-top:10px;}
+    .hero-content .body-copy{margin-top:12px;font-size:16px;}
+    .hero-cta{margin-top:18px;}
+    .hero-media{margin-top:32px;padding:0 20px;}
     .hero-media-inner{height:56vh;min-height:340px;border-radius:var(--radius-md);}
   }
 
@@ -477,7 +482,7 @@
     <h1>Top-Rated Social Media &amp; Digital Marketing Agency</h1>
     <p class="lede">Trusted by leading local &amp; international businesses</p>
     <p class="body-copy">We help brands get seen by the right audience online, stay remembered, and turn that attention into measurable growth.</p>
-    <a href="#contact" class="hero-cta">Get in Touch</a>
+    <a href="#contact" class="hero-cta">Start a Project</a>
   </div>
 
   <div class="hero-media">
