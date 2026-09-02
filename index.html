@@ -418,20 +418,34 @@
   .swiper-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:none;padding:0;transition:background 0.25s ease, transform 0.25s ease;}
   .swiper-dot.is-active{background:var(--gold);transform:scale(1.4);}
 
-  /* ---------- Case studies (Pinterest masonry) ---------- */
-  .case-grid{columns:3 240px;column-gap:22px;}
-  .case-card{break-inside:avoid;margin-bottom:22px;border-radius:var(--radius-md);overflow:hidden;position:relative;background:var(--paper);box-shadow:var(--shadow-card);}
-  .case-media{width:100%;position:relative;background:repeating-linear-gradient(135deg, #f6f4ee 0 14px, #ece8db 14px 28px);}
-  .case-pill{position:absolute;top:14px;right:14px;background:var(--white);color:var(--navy);font-size:11.5px;font-weight:700;padding:6px 13px;border-radius:999px;}
-  .case-overlay{
-    position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,18,39,0) 42%, rgba(7,18,39,0.78) 100%);
-    display:flex;flex-direction:column;justify-content:flex-end;padding:20px;opacity:0;transition:opacity 0.25s ease;
+  /* ---------- Case studies ---------- */
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .case-card{
+    border-radius:var(--radius-md);overflow:hidden;position:relative;background:var(--paper);
+    box-shadow:var(--shadow-card);transition:transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .case-card:hover .case-overlay{opacity:1;}
-  .case-overlay h3{font-family:var(--font-body);font-weight:700;font-size:14.5px;color:var(--white);}
-  .case-overlay p{margin-top:6px;font-size:13px;color:rgba(255,255,255,0.78);}
-  @media(max-width:760px){.case-grid{columns:2 160px;}}
-  @media(max-width:520px){.case-grid{columns:1;}}
+  .case-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px -18px rgba(7,18,39,0.28);}
+  .case-media{width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;background:repeating-linear-gradient(135deg, #f6f4ee 0 14px, #ece8db 14px 28px);}
+  .case-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
+  .case-card:hover .case-img{transform:scale(1.04);}
+  .case-pill{position:absolute;top:16px;right:16px;z-index:2;background:var(--gold);color:var(--navy-deep);font-size:11px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;padding:6px 13px;border-radius:999px;}
+  .case-overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,18,39,0) 30%, rgba(7,18,39,0.86) 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;padding:22px;
+  }
+  .case-overlay h3{font-family:var(--font-display);font-weight:700;font-size:16.5px;color:var(--white);line-height:1.25;}
+  .case-overlay p{margin-top:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.8);}
+  .case-view{
+    margin-top:14px;display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.02em;
+    color:var(--gold-soft);width:fit-content;padding-bottom:2px;border-bottom:1px solid rgba(228,194,98,0.4);
+    transition:color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
+  }
+  .case-view svg{width:13px;height:13px;flex-shrink:0;transition:transform 0.2s ease;}
+  .case-card:hover .case-view{color:var(--gold);border-color:var(--gold);gap:9px;}
+  .case-card:hover .case-view svg{transform:translateX(2px);}
+  @media(max-width:900px){.case-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.case-grid{grid-template-columns:1fr;}}
 
   /* ---------- Contact ---------- */
   .contact{background:var(--white);border-top:1px solid var(--line);}
@@ -900,12 +914,39 @@
       <p>See what real results we've gotten for our clients look like. Collated from our work done over the years.</p>
     </div>
     <div class="case-grid">
-      <div class="case-card"><div class="case-media" style="aspect-ratio:4/5;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
-      <div class="case-card"><div class="case-media" style="aspect-ratio:1/1;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
-      <div class="case-card"><div class="case-media" style="aspect-ratio:3/4;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
-      <div class="case-card"><div class="case-media" style="aspect-ratio:4/5;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
-      <div class="case-card"><div class="case-media" style="aspect-ratio:1/1;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
-      <div class="case-card"><div class="case-media" style="aspect-ratio:3/4;"><span class="case-pill">Coming soon</span><div class="case-overlay"><h3>Client name — result headline</h3><p>Short summary of the challenge and outcome.</p></div></div></div>
+      <div class="case-card">
+        <div class="case-media">
+          <img class="case-img" src="Keltim_Global_Case_study.jpg" alt="Keltims Global construction brand case study">
+          <span class="case-pill">Construction</span>
+          <div class="case-overlay">
+            <h3>Keltims Global — Construction Brand</h3>
+            <p>How we built a converting social media presence from scratch.</p>
+            <a href="#" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-media">
+          <img class="case-img" src="Branding___Cont_Development_Project.jpg" alt="Atlanta wellness brand branding and content development project">
+          <span class="case-pill">Branding</span>
+          <div class="case-overlay">
+            <h3>Atlanta Wellness Brand — Branding & Content Development</h3>
+            <p>How MAJ Media Digital restructured their online identity.</p>
+            <a href="#" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-media">
+          <img class="case-img" src="Eileynova_Case_Study.jpg" alt="Eileynova social media management case study">
+          <span class="case-pill">Social Media</span>
+          <div class="case-overlay">
+            <h3>Eileynova — From Invisible to Noticed</h3>
+            <p>A dive into the full-scale social media management behind the growth.</p>
+            <a href="#" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
