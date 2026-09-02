@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eileynova Case Study — MAJ Media Digital</title>
+<meta name="description" content="From Invisible to Noticed — a case study by MAJ Media Digital.">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2A4D;
+    --navy-deep:#071227;
+    --navy-tint:#E8EEF6;
+    --gold:#CDA434;
+    --gold-soft:#E4C262;
+    --gold-tint:#FBF1D8;
+    --gold-deep:#A9801F;
+    --white:#ffffff;
+    --paper:#FAFAF9;
+    --ink:#0B1220;
+    --ink-soft:#4A5568;
+    --ink-faint:#94A0B3;
+    --line:#E6E8EC;
+    --max:1180px;
+    --font-display:'Bricolage Grotesque','Inter',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --shadow-soft:0 20px 50px -20px rgba(7,18,39,0.18);
+    --shadow-card:0 12px 30px -14px rgba(7,18,39,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,.display{font-family:var(--font-display);font-weight:700;line-height:1.1;margin:0;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  /* Header (same as homepage) */
+  .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:nowrap;padding:18px 32px;max-width:var(--max);margin:0 auto;}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--navy);letter-spacing:-0.01em;white-space:nowrap;}
+  .logo span{color:var(--gold);}
+  .logo-img{width:32px;height:32px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+  nav.primary-nav{display:flex;align-items:center;gap:clamp(16px,2.4vw,32px);flex-wrap:nowrap;}
+  nav.primary-nav a{color:var(--ink-soft);font-size:14.5px;font-weight:500;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s ease,border-color .2s ease;}
+  nav.primary-nav a:hover{color:var(--navy);border-color:var(--gold);}
+
+  /* Services dropdown */
+  .nav-dropdown{position:relative;}
+  .nav-dropdown-toggle{display:inline-flex;align-items:center;gap:5px;background:none;border:0;padding:6px 0;margin:0;font-family:inherit;color:var(--ink-soft);font-size:14.5px;font-weight:500;white-space:nowrap;cursor:pointer;border-bottom:1px solid transparent;transition:color .2s ease,border-color .2s ease;}
+  .nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown.is-open .nav-dropdown-toggle{color:var(--navy);border-color:var(--gold);}
+  .nav-dropdown-toggle .chevron{width:12px;height:12px;transition:transform .2s ease;flex-shrink:0;}
+  .nav-dropdown:hover .nav-dropdown-toggle .chevron,.nav-dropdown.is-open .nav-dropdown-toggle .chevron{transform:rotate(180deg);}
+  .nav-dropdown-menu{position:absolute;top:100%;left:0;margin-top:12px;min-width:232px;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-soft);padding:8px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;z-index:60;}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.is-open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+  .nav-dropdown-menu a{display:block;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:500;color:var(--ink-soft);white-space:nowrap;border-bottom:none;}
+  .nav-dropdown-menu a:hover{background:var(--navy-tint);color:var(--navy);}
+  .header-cta{display:inline-flex;align-items:center;padding:11px 22px;white-space:nowrap;flex-shrink:0;background:var(--gold);color:var(--navy-deep);font-size:14px;font-weight:700;border-radius:999px;transition:background .2s ease,transform .2s ease;}
+  .header-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:0;padding:4px;}
+  nav.primary-nav a.mobile-nav-cta{display:none;}
+  @media(max-width:900px){
+    .header-inner{padding:16px 20px;}
+    .logo{font-size:19px;gap:8px;}
+    .logo-img{width:28px;height:28px;}
+    nav.primary-nav{position:fixed;top:64px;left:0;right:0;height:calc(100vh - 64px);height:calc(100dvh - 64px);z-index:200;background:var(--white);flex-direction:column;align-items:flex-start;gap:0;padding:12px 24px 24px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;overflow-y:auto;}
+    nav.primary-nav.is-open{opacity:1;transform:translateY(0);pointer-events:auto;}
+    nav.primary-nav a{width:100%;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;}
+    .nav-dropdown{border-bottom:1px solid var(--line);}
+    .nav-dropdown-toggle{width:100%;justify-content:space-between;color:var(--navy);font-size:16px;font-weight:600;padding:14px 0;border-bottom:none;}
+    .nav-dropdown-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:0 0 6px 12px;margin-top:0;max-height:0;overflow:hidden;transition:max-height .25s ease;}
+    .nav-dropdown.is-open .nav-dropdown-menu{max-height:340px;}
+    .nav-dropdown-menu a{color:var(--ink-soft);font-size:14.5px;font-weight:500;padding:9px 0;border-radius:0;}
+    nav.primary-nav a.mobile-nav-cta{display:inline-flex;align-items:center;justify-content:space-between;margin-top:14px;background:var(--gold);color:var(--navy-deep);padding:14px 18px;border-radius:14px;border:none;font-weight:700;}
+    .arrow-circle{background:rgba(255,255,255,.35);border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;}
+    .arrow-circle svg{width:14px;height:14px;}
+    .header-cta{display:none;}
+    .nav-toggle{display:block;position:relative;z-index:201;width:26px;height:20px;}
+    .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:26px;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease,opacity .2s ease,top .2s ease;}
+    .nav-toggle span{top:9px;}
+    .nav-toggle span::before{top:-8px;}
+    .nav-toggle span::after{top:8px;}
+    .nav-toggle.is-active span{background:transparent;}
+    .nav-toggle.is-active span::before{transform:rotate(45deg);top:0;}
+    .nav-toggle.is-active span::after{transform:rotate(-45deg);top:0;}
+  }
+
+  /* Service detail page */
+  .svc-hero{background:var(--navy-tint);padding:64px 0 56px;}
+  .svc-hero .breadcrumb{font-size:13.5px;color:var(--ink-soft);}
+  .svc-hero .breadcrumb a{color:var(--navy);font-weight:600;}
+  .svc-hero .icon-badge{width:60px;height:60px;border-radius:16px;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);box-shadow:var(--shadow-card);margin-bottom:22px;}
+  .svc-hero .icon-badge svg{width:30px;height:30px;}
+  .svc-hero h1{font-size:clamp(32px,4.2vw,48px);color:var(--navy);max-width:760px;}
+  .svc-hero p.lede{margin-top:16px;font-size:17px;color:var(--ink-soft);max-width:640px;}
+  .svc-hero .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{display:inline-flex;align-items:center;padding:13px 26px;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:14.5px;border-radius:999px;transition:background .2s ease,transform .2s ease;}
+  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  .btn-ghost{display:inline-flex;align-items:center;padding:13px 26px;border:1.5px solid var(--navy);color:var(--navy);font-weight:600;font-size:14.5px;border-radius:999px;transition:background .2s ease;}
+  .btn-ghost:hover{background:var(--white);}
+
+  .svc-section{padding:64px 0;}
+  .svc-section h2{font-size:clamp(24px,3vw,32px);color:var(--navy);}
+  .svc-section .section-kicker{font-family:var(--font-display);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;display:block;}
+
+  .includes-grid{margin-top:32px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .includes-item{display:flex;gap:14px;padding:20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);}
+  .includes-item .tick{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--gold-tint);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;}
+  .includes-item .tick svg{width:14px;height:14px;}
+  .includes-item p{font-size:14.5px;color:var(--ink-soft);}
+  .includes-item strong{display:block;color:var(--navy);font-size:15px;margin-bottom:4px;}
+
+  .process-list{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .process-step{padding:26px 22px;background:var(--navy);color:var(--white);border-radius:var(--radius-md);position:relative;}
+  .process-step .num{font-family:var(--font-display);font-weight:800;font-size:30px;color:var(--gold-soft);}
+  .process-step h4{margin-top:10px;font-size:16px;}
+  .process-step p{margin-top:8px;font-size:13.5px;color:rgba(255,255,255,.75);}
+
+  .svc-cta{background:var(--navy);color:var(--white);border-radius:var(--radius-lg);padding:52px 40px;text-align:center;}
+  .svc-cta h2{color:var(--white);font-size:clamp(24px,3vw,32px);}
+  .svc-cta p{margin-top:12px;color:rgba(255,255,255,.75);max-width:520px;margin-left:auto;margin-right:auto;}
+  .svc-cta .cta-row{justify-content:center;margin-top:24px;}
+
+  .related-grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .related-card{padding:22px;border:1px solid var(--line);border-radius:var(--radius-md);transition:box-shadow .2s ease,transform .2s ease;}
+  .related-card:hover{box-shadow:var(--shadow-card);transform:translateY(-3px);}
+  .related-card h4{color:var(--navy);font-size:16px;}
+  .related-card p{margin-top:8px;font-size:13.5px;color:var(--ink-soft);}
+  .related-card .lnk{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--gold-deep);}
+
+  @media(max-width:760px){
+    .includes-grid{grid-template-columns:1fr;}
+    .related-grid{grid-template-columns:1fr;}
+  }
+
+  /* Footer (same as homepage) */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.8);padding:56px 0 28px;margin-top:40px;}
+  .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .footer-logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--white);}
+  .footer-logo span{color:var(--gold);}
+  .footer-logo-img{width:28px;height:28px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+  .footer-tag{margin-top:12px;font-size:14px;max-width:280px;color:rgba(255,255,255,.6);}
+  .footer-cols{display:flex;gap:60px;flex-wrap:wrap;}
+  .footer-col h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-bottom:14px;}
+  .footer-col a{display:block;font-size:14.5px;color:rgba(255,255,255,.78);margin-bottom:10px;}
+  .footer-col a:hover{color:var(--gold-soft);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:24px;}
+  .footer-copy{font-size:13px;color:rgba(255,255,255,.45);}
+  .social-icons{display:flex;gap:12px;}
+  .social-icons a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .social-icons svg{width:16px;height:16px;}
+  .wa-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px -8px rgba(0,0,0,.35);z-index:90;}
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+
+  /* ---------- Case study detail page ---------- */
+  .case-hero{background:var(--navy-tint);padding:64px 0 0;}
+  .case-hero .breadcrumb{font-size:13.5px;color:var(--ink-soft);}
+  .case-hero .breadcrumb a{color:var(--navy);font-weight:600;}
+  .case-hero .tag-pill{display:inline-block;margin:22px 0 14px;background:var(--gold);color:var(--navy-deep);font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:6px 14px;border-radius:999px;}
+  .case-hero h1{font-size:clamp(30px,4vw,44px);color:var(--navy);max-width:760px;}
+  .case-hero p.lede{margin-top:14px;font-size:16.5px;color:var(--ink-soft);max-width:620px;}
+  .case-hero-media{margin-top:36px;width:100%;aspect-ratio:16/8;border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden;position:relative;background:repeating-linear-gradient(135deg,#f6f4ee 0 14px,#ece8db 14px 28px);}
+  .case-hero-media img{width:100%;height:100%;object-fit:cover;}
+
+  .uc-banner{display:flex;align-items:flex-start;gap:16px;background:var(--gold-tint);border:1px solid var(--gold-soft);border-radius:var(--radius-md);padding:22px 24px;margin-top:-1px;}
+  .uc-banner svg{width:24px;height:24px;flex-shrink:0;color:var(--gold-deep);margin-top:2px;}
+  .uc-banner h3{font-size:15.5px;color:var(--navy);}
+  .uc-banner p{margin-top:5px;font-size:14px;color:var(--ink-soft);line-height:1.55;}
+
+  .case-meta-grid{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .case-meta-item{padding:20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);}
+  .case-meta-item h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:6px;}
+  .case-meta-item p{font-size:14.5px;color:var(--navy);font-weight:600;}
+
+  .case-body{margin-top:44px;display:grid;grid-template-columns:1fr;gap:28px;}
+  .case-body h2{font-size:20px;color:var(--navy);margin-bottom:10px;}
+  .case-body p{font-size:15px;color:var(--ink-soft);line-height:1.7;max-width:70ch;}
+  .case-block{padding-top:8px;}
+
+  .related-cases{margin-top:8px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(max-width:760px){
+    .case-meta-grid{grid-template-columns:repeat(2,1fr);}
+    .related-cases{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/#home" class="logo"><img src="logo.jpg" alt="MAJ Media Digital logo" class="logo-img">MAJ <span>Media Digital</span></a>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="/#home">Home</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-expanded="false">Services
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="/#services">All Services</a>
+          <a href="/social-media-management">Social Media Management</a>
+          <a href="/content-creation">Content Creation</a>
+          <a href="/ads-management">Ads Management</a>
+          <a href="/branding">Branding</a>
+          <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
+        </div>
+      </div>
+      <a href="/#about">About</a>
+      <a href="/#case-studies">Case Studies</a>
+      <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#contact" class="mobile-nav-cta">Get in Touch
+        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#0E2A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+      </a>
+    </nav>
+    <a href="/#contact" class="header-cta">Get in Touch</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+
+<section class="case-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / Eileynova</p>
+    <span class="tag-pill">Social Media</span>
+    <h1>From Invisible to Noticed</h1>
+    <p class="lede">A dive into the full-scale social media management behind Eileynova's growth.</p>
+    <div class="case-hero-media"><img src="Eileynova_Case_Study.jpg" alt="Eileynova case study"></div>
+  </div>
+</section>
+
+<section class="svc-section" style="padding-top:28px;">
+  <div class="wrap">
+    <div class="uc-banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
+      <div>
+        <h3>Full case study under construction</h3>
+        <p>We're putting together the complete write-up for this project — process, results, and visuals. Check back soon, or reach out on WhatsApp for the details right now.</p>
+      </div>
+    </div>
+
+    <div class="case-meta-grid">
+      <div class="case-meta-item"><h4>Client</h4><p>Eileynova</p></div>
+      <div class="case-meta-item"><h4>Industry</h4><p>Fashion & Beachwear</p></div>
+      <div class="case-meta-item"><h4>Services</h4><p>Social Media Management</p></div>
+      <div class="case-meta-item"><h4>Status</h4><p>Coming soon</p></div>
+    </div>
+
+    <div class="case-body">
+      <div class="case-block">
+        <h2>The Challenge</h2>
+        <p>[Placeholder] Full details on Eileynova's starting point and goals will go here once the complete write-up is ready.</p>
+      </div>
+      <div class="case-block">
+        <h2>What We Did</h2>
+        <p>[Placeholder] A breakdown of the strategy and work delivered will go here.</p>
+      </div>
+      <div class="case-block">
+        <h2>The Results</h2>
+        <p>[Placeholder] Key outcomes and numbers will go here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="svc-cta">
+      <h2>Want results like this for your brand?</h2>
+      <p>Tell us about your brand and goals — we'll map out the right plan and next steps.</p>
+      <div class="cta-row">
+        <a href="index.html#contact" class="btn-primary">Start a Project</a>
+        <a href="https://wa.me/2348108427617" target="_blank" rel="noopener" class="btn-ghost" style="border-color:var(--white);color:var(--white);">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-section" style="padding-top:0;">
+  <div class="wrap">
+    <span class="section-kicker">More Case Studies</span>
+    <h2>Other projects</h2>
+    <div class="related-cases">
+      <div class="related-card"><h4>Keltims Global</h4><p>How we built a converting social media presence from scratch for Keltims Global.</p><a href="case-keltims-global.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div class="related-card"><h4>Atlanta Wellness Brand</h4><p>How MAJ Media Digital restructured the online identity of an Atlanta-based wellness brand.</p><a href="case-atlanta-wellness.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="logo.jpg" alt="MAJ Media Digital logo" class="footer-logo-img">MAJ <span>Media Digital</span></div>
+        <p class="footer-tag">We help brands get seen, stay remembered, and turn attention into measurable growth.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="/#home">Home</a>
+          <a href="/#services">Services</a>
+          <a href="/#about">About</a>
+          <a href="/#case-studies">Case Studies</a>
+          <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/social-media-management">Social Media Management</a>
+          <a href="/content-creation">Content Creation</a>
+          <a href="/ads-management">Ads Management</a>
+          <a href="/branding">Branding</a>
+          <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <a href="mailto:hello@majmediadigital.com">hello@majmediadigital.com</a>
+          <a href="https://wa.me/2348108427617" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 MAJ Media Digital. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/majmediahq?igsi=ZmZha3VqZXVtNjZ3&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="https://www.tiktok.com/@majmediahq?_r=1&amp;_t=ZS-99MmiwGBzyn" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.3 1.9 1.6 3.4 3.5 3.9V9.4c-1.3-.1-2.5-.5-3.5-1.2v6.1a5.3 5.3 0 1 1-4.6-5.3v2.6a2.7 2.7 0 1 0 1.9 2.6V3H14Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/maj-media-digital/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="10" x2="7" y2="17"/><line x1="7" y1="7" x2="7" y2="7"/><path d="M11 17v-4.5a2.2 2.2 0 0 1 4.4 0V17"/><line x1="11" y1="10" x2="11" y2="17"/></svg></a>
+        <a href="https://www.facebook.com/share/19JiysdQyG/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v10M9 13h4"/><circle cx="12" cy="12" r="9"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2348108427617" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.36 5.13L2 22l5.1-1.44a9.9 9.9 0 0 0 4.94 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.72 14.12c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.5-.73-2.98-1.19-4.9-4.24-5.05-4.44-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.46.27-.29.6-.36.8-.36h.58c.19 0 .44-.02.66.51.24.58.8 2.02.87 2.17.07.14.12.32.02.51-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.27 1.64 2.06 1.13 1.02 2.07 1.34 2.37 1.49.29.15.46.13.63-.08.17-.2.72-.85.91-1.14.19-.29.39-.24.66-.14.27.1 1.7.81 2 .96.29.14.48.22.55.34.07.13.07.73-.17 1.4Z"/></svg>
+</a>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  navToggle.addEventListener('click', () => {
+    const open = primaryNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-active', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    primaryNav.classList.remove('is-open');
+    navToggle.classList.remove('is-active');
+  }));
+
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const toggle = dd.querySelector('.nav-dropdown-toggle');
+    toggle.addEventListener('click', () => {
+      const open = dd.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  });
+</script>
+
+</body>
+</html>
