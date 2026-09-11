@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
   :root{
     --navy:#0E2A4D;
@@ -212,6 +213,14 @@
   .case-card:hover .case-view svg{transform:translateX(2px);}
   @media(max-width:900px){.case-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:560px){.case-grid{grid-template-columns:1fr;}}
+
+  .results-swiper{margin-top:28px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);background:var(--paper);}
+  .results-swiper .swiper-slide{display:flex;align-items:center;justify-content:center;background:var(--paper);}
+  .results-swiper .swiper-slide img{width:100%;height:auto;max-height:480px;object-fit:contain;display:block;}
+  .results-swiper .swiper-pagination{position:relative;margin-top:16px;bottom:auto;}
+  .results-swiper .swiper-pagination-bullet{background:var(--gold);opacity:.35;}
+  .results-swiper .swiper-pagination-bullet-active{opacity:1;background:var(--gold-deep);}
+  @media(max-width:600px){.results-swiper .swiper-slide img{max-height:340px;}}
 </style>
 </head>
 <body>
@@ -253,6 +262,15 @@
     <p class="breadcrumb"><a href="index.html">Home</a> / Case Studies</p>
     <h1>See the Results</h1>
     <p class="lede">Discover how we've helped businesses across the globe achieve online success — through strategy, advertising, and consistent execution.</p>
+    <div class="results-swiper swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="1.jpg" alt="MAJ Media Digital results screenshot"></div>
+        <div class="swiper-slide"><img src="2.jpg" alt="MAJ Media Digital results screenshot"></div>
+        <div class="swiper-slide"><img src="3.jpg" alt="MAJ Media Digital results screenshot"></div>
+        <div class="swiper-slide"><img src="4.jpg" alt="MAJ Media Digital results screenshot"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
 </section>
 
@@ -424,6 +442,15 @@
       const open = dd.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open);
     });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  new Swiper('.results-swiper', {
+    loop: true,
+    autoplay: { delay: 2600, disableOnInteraction: false },
+    pagination: { el: '.results-swiper .swiper-pagination', clickable: true }
   });
 </script>
 
