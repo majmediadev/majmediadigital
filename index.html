@@ -22,13 +22,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0E2A4D;
-    --navy-deep:#071227;
+    --navy:#011d42;
+    --navy-deep:#010f24;
     --navy-tint:#E8EEF6;
-    --gold:#CDA434;
-    --gold-soft:#E4C262;
+    --gold:#c9a227;
+    --gold-soft:#dcbc55;
     --gold-tint:#FBF1D8;
-    --gold-deep:#A9801F;
+    --gold-deep:#a3821c;
     --white:#ffffff;
     --paper:#FAFAF9;
     --ink:#0B1220;
@@ -42,8 +42,8 @@
     --radius-lg:28px;
     --radius-md:18px;
     --radius-sm:10px;
-    --shadow-soft:0 20px 50px -20px rgba(7,18,39,0.18);
-    --shadow-card:0 12px 30px -14px rgba(7,18,39,0.16);
+    --shadow-soft:0 20px 50px -20px rgba(1,15,36,0.18);
+    --shadow-card:0 12px 30px -14px rgba(1,15,36,0.16);
   }
 
   *{box-sizing:border-box;}
@@ -75,7 +75,7 @@
   /* ---------- Header ---------- */
   .site-header{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(7,18,39,0);
+    background:rgba(1,15,36,0);
     transition:background 0.35s ease, box-shadow 0.35s ease;
   }
   .site-header.scrolled{
@@ -183,7 +183,7 @@
   .hero-slide video{width:100%;height:100%;object-fit:cover;}
   .hero-slides::after{
     content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(7,18,39,0.05) 0%, rgba(7,18,39,0) 40%, rgba(7,18,39,0.35) 100%);
+    background:linear-gradient(180deg, rgba(1,15,36,0.05) 0%, rgba(1,15,36,0) 40%, rgba(1,15,36,0.35) 100%);
     z-index:1;
   }
 
@@ -227,12 +227,12 @@
   .orbit-section{background:var(--white);overflow:hidden;}
   .orbit-section::before{
     content:'';position:absolute;top:-20%;right:-10%;width:640px;height:640px;
-    background:radial-gradient(circle, rgba(7,18,39,0.08) 0%, rgba(7,18,39,0) 68%);
+    background:radial-gradient(circle, rgba(1,15,36,0.08) 0%, rgba(1,15,36,0) 68%);
     filter:blur(10px);pointer-events:none;
   }
   .orbit-section::after{
     content:'';position:absolute;bottom:-25%;left:-10%;width:520px;height:520px;
-    background:radial-gradient(circle, rgba(205,164,52,0.14) 0%, rgba(205,164,52,0) 68%);
+    background:radial-gradient(circle, rgba(201,162,39,0.14) 0%, rgba(201,162,39,0) 68%);
     filter:blur(10px);pointer-events:none;
   }
   .orbit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
@@ -300,7 +300,7 @@
     width:52px;height:52px;border-radius:50%;
     background:var(--gold);
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 10px 24px rgba(205,164,52,0.4);
+    box-shadow:0 10px 24px rgba(201,162,39,0.4);
   }
   .impact-play svg{width:18px;height:18px;fill:var(--navy-deep);margin-left:2px;}
   .impact-cta{
@@ -424,13 +424,13 @@
     border-radius:var(--radius-md);overflow:hidden;position:relative;background:var(--paper);
     box-shadow:var(--shadow-card);transition:transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .case-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px -18px rgba(7,18,39,0.28);}
+  .case-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px -18px rgba(1,15,36,0.28);}
   .case-media{width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;background:repeating-linear-gradient(135deg, #f6f4ee 0 14px, #ece8db 14px 28px);}
   .case-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
   .case-card:hover .case-img{transform:scale(1.04);}
   .case-pill{position:absolute;top:16px;right:16px;z-index:2;background:var(--gold);color:var(--navy-deep);font-size:11px;font-weight:700;letter-spacing:0.02em;text-transform:uppercase;padding:6px 13px;border-radius:999px;}
   .case-overlay{
-    position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,18,39,0) 30%, rgba(7,18,39,0.86) 100%);
+    position:absolute;inset:0;background:linear-gradient(180deg, rgba(1,15,36,0) 30%, rgba(1,15,36,0.86) 100%);
     display:flex;flex-direction:column;justify-content:flex-end;padding:22px;
   }
   .case-overlay h3{font-family:var(--font-display);font-weight:700;font-size:16.5px;color:var(--white);line-height:1.25;}
@@ -438,7 +438,7 @@
   .case-view{
     margin-top:14px;display:inline-flex;align-items:center;gap:6px;
     font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.02em;
-    color:var(--gold-soft);width:fit-content;padding-bottom:2px;border-bottom:1px solid rgba(228,194,98,0.4);
+    color:var(--gold-soft);width:fit-content;padding-bottom:2px;border-bottom:1px solid rgba(220,188,85,0.4);
     transition:color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
   }
   .case-view svg{width:13px;height:13px;flex-shrink:0;transition:transform 0.2s ease;}
@@ -516,7 +516,7 @@
       flex-direction:column;align-items:stretch;gap:0;
       padding:76px 24px 18px;
       transform:translateY(-100%);transition:transform 0.35s ease;
-      box-shadow:0 20px 40px -20px rgba(7,18,39,0.25);
+      box-shadow:0 20px 40px -20px rgba(1,15,36,0.25);
       border-bottom:3px solid var(--gold);
       max-height:100vh;overflow-y:auto;
     }
@@ -566,6 +566,25 @@
     .nav-toggle.is-active span::before,
     .nav-toggle.is-active span::after{background:var(--navy);}
   }
+
+  /* ---------- Contact ---------- */
+  .contact-section{background:var(--navy-tint);padding:96px 0;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start;}
+  .contact-copy h2{font-size:clamp(30px,3.6vw,42px);color:var(--navy);}
+  .contact-copy p{margin-top:16px;color:var(--ink-soft);max-width:44ch;}
+  .contact-links{margin-top:28px;display:grid;gap:14px;}
+  .contact-links a{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--navy);}
+  .contact-links .ic{width:40px;height:40px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);box-shadow:var(--shadow-card);flex-shrink:0;}
+  .contact-links .ic svg{width:18px;height:18px;}
+  .contact-form{background:var(--white);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-soft);display:grid;gap:16px;}
+  .contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .contact-form label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--navy);}
+  .contact-form input,.contact-form textarea{font:inherit;font-weight:400;font-size:15px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:100%;}
+  .contact-form textarea{min-height:130px;resize:vertical;}
+  .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px;background:var(--white);}
+  .contact-form button{justify-self:start;border:0;cursor:pointer;background:var(--gold);color:var(--navy-deep);font:inherit;font-weight:700;font-size:15px;padding:14px 30px;border-radius:999px;transition:background .2s ease,transform .2s ease;}
+  .contact-form button:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:36px;}.contact-form{padding:24px;}.contact-form .row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -583,7 +602,7 @@
           <a href="#services">All Services</a>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
@@ -594,7 +613,7 @@
       <a href="#contact">Contact</a>
       <a href="#contact" class="mobile-nav-cta">Get in Touch
         <span class="arrow-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#011d42" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg>
         </span>
       </a>
     </nav>
@@ -610,7 +629,7 @@
     <h1>Top-Rated Social Media &amp; Digital Marketing Agency</h1>
     <p class="lede">Trusted by leading local &amp; international businesses</p>
     <p class="body-copy">We help brands get seen by the right audience online, stay remembered, and turn that attention into measurable growth.</p>
-    <a href="#contact" class="hero-cta">Start a Project</a>
+    <a href="#contact" class="hero-cta">Get in Touch</a>
   </div>
 
   <div class="hero-media">
@@ -771,8 +790,8 @@
     <div class="philosophy-copy">
       <h2>Who We Are</h2>
       <p>MAJ Media Digital is a complete social media agency helping brands win online. From social media management and content creation to paid advertising and digital strategy, we combine creativity, strategy, and data to help businesses get visibility that converts.</p>
-      <p>We understand that great content is only one part of the equation, and that social media success goes beyond just posting. Our focus is creating digital strategies that get attention, build credibility, and drive measurable results.</p>
-      <p class="emphasis">We don't just manage social media. We take the stress off your hands and build a digital presence that moves the business forward.</p>
+      <p>We understand that great content is only one part of the equation and that social media success goes beyond just posting. Our focus is creating digital strategies that get attention, build credibility, and drive measurable results.</p>
+      <p class="emphasis">We don't just manage social media. We take the stress off your hands &amp; build a digital presence that moves the business forward.</p>
       <a href="#contact" class="hero-cta" style="background:var(--navy);color:var(--white);">Get in Touch</a>
     </div>
   </div>
@@ -790,35 +809,35 @@
       <div class="service-card tint-navy">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.7M8.6 13.4l6.8 3.7"/></svg></div>
         <h3>Social Media Management</h3>
-        <p>Strategy, content creation, campaign planning, ads setup and more. It's not just posting alone.</p>
+        <p>We manage the presence of your brand on social media including strategy, content creation, campaign planning, ads setup and more. It’s not just posting alone.</p>
         <a href="/social-media-management" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
 
       <div class="service-card tint-gold">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 9l4-2v10l-4-2"/></svg></div>
         <h3>Content Creation</h3>
-        <p>Custom, engaging content fit to your brand's goal and audience — you pick the date, we handle production.</p>
+        <p>Custom, engaging content, created to fit your brand’s goal &amp; audience. You pick the date and we arrive to produce brand strengthening content that increases audience interest.</p>
         <a href="/content-creation" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
 
       <div class="service-card tint-paper">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-2.5-7.5L3 11z"/></svg></div>
-        <h3>Ads Management</h3>
-        <p>We plan and manage campaigns that target the right audience while controlling costs and optimizing results.</p>
+        <h3>Performance Marketing</h3>
+        <p>We plan and manage ad campaigns that target the right audience while controlling the costs and optimizing for best results.</p>
         <a href="/ads-management" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
 
       <div class="service-card tint-paper">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></div>
         <h3>Branding</h3>
-        <p>Clean, memorable visual identity and brand assets that build consistency, credibility, and recognition.</p>
+        <p>We create clean, memorable visual identity, and brand assets that create consistency, credibility, and recognition.</p>
         <a href="/branding" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
 
       <div class="service-card tint-gold">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4-8 4-8-4 8-4Z"/><path d="M4 11v6l8 4 8-4v-6"/></svg></div>
         <h3>Training — MAJ Media Academy</h3>
-        <p>Practical social media training through private sessions and cohort programs for individuals, teams, and businesses.</p>
+        <p>We provide practical social media training through private sessions and cohort-based programs for individuals, teams, and businesses, helping them master in-demand skills.</p>
         <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
 
@@ -861,7 +880,7 @@
             <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
             <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
           </div>
-          <p class="quote-text">Previously, we had no presence online and on Google. But with MAJ Media Digital, we have a proper listing that brings visits and bookings from social media. My favourite part is the quality images and videos we now have.</p>
+          <p class="quote-text">Previously, we had no presence online and on Google. But with MAJ Media Digital, we have a proper listing that brings visits to the hotel and bookings from social media. My favourite part is also the quality images and videos we now have.</p>
           <div class="quote-attr"><div class="quote-avatar">S</div><span>Seun</span></div>
         </div>
         <div class="quote-card">
@@ -872,7 +891,7 @@
             <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
             <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
           </div>
-          <p class="quote-text">It's been 2 productive years with MAJ Media Digital and my brand has continued to grow immensely. From 30 to 12k followers on TikTok, I have never doubted their performance. Every service is carried out with intentionality.</p>
+          <p class="quote-text">It's been 2 productive years with MAJ Media Digital and my brand has continued to grow immensely. From 30 to 12k followers and continuous growth on Tiktok, I have never doubted their performance. Every service is carried out with intentionality and they have treated my brand as theirs. Thank you again.</p>
           <div class="quote-attr"><div class="quote-avatar">E</div><span>Esther</span></div>
         </div>
         <div class="quote-card">
@@ -883,7 +902,7 @@
             <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
             <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 8l-4.8 4 1.4 6.4L10 15.3 4.4 18.4 5.8 12 1 8l6.4-1.1L10 1Z"/></svg>
           </div>
-          <p class="quote-text">MAJ Media Digital does not joke with my brand at all. Every content does well and my ads have never converted this well before. Time was taken to fully understand my brand before starting.</p>
+          <p class="quote-text">MAJ Media Digital does not joke with my brand at all. Every content does well and my ads have never converted this well before. I really appreciate how time was taken to fully understand my brand and what was needed before starting. I believe that has contributed to the success.</p>
           <div class="quote-attr"><div class="quote-avatar">U</div><span>Uche</span></div>
         </div>
       </div>
@@ -955,8 +974,31 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
+<section class="contact-section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <span class="kicker" style="display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;">Contact Us</span>
+      <h2>Let’s talk about your brand</h2>
+      <p>Tell us about your brand and where you want it to go. Send us a message, or reach us directly on WhatsApp or email.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/2348108427617" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.36 5.13L2 22l5.1-1.44a9.9 9.9 0 0 0 4.94 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Z"/></svg></span>WhatsApp: +234 810 842 7617</a>
+        <a href="mailto:hello@majmediadigital.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>hello@majmediadigital.com</a>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="row">
+        <label>Full name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <label>WhatsApp / phone number<input type="tel" name="phone" autocomplete="tel"></label>
+      <label>How can we help?<textarea name="message" required></textarea></label>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
 <!-- ================= FOOTER ================= -->
-<footer id="contact">
+<footer id="footer">
   <div class="wrap">
     <div class="footer-top">
       <div>
@@ -976,7 +1018,7 @@
           <h4>Services</h4>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
@@ -1108,6 +1150,13 @@
       }, 100);
     });
   })();
+
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const body = `Name: ${f.get('name')}\nEmail: ${f.get('email')}\nPhone/WhatsApp: ${f.get('phone') || '-'}\n\n${f.get('message')}`;
+    window.location.href = 'mailto:hello@majmediadigital.com?subject=' + encodeURIComponent('New enquiry from ' + f.get('name')) + '&body=' + encodeURIComponent(body);
+  });
 </script>
 
 </body>

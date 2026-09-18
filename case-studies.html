@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
   :root{
-    --navy:#0E2A4D;
-    --navy-deep:#071227;
+    --navy:#011d42;
+    --navy-deep:#010f24;
     --navy-tint:#E8EEF6;
-    --gold:#CDA434;
-    --gold-soft:#E4C262;
+    --gold:#c9a227;
+    --gold-soft:#dcbc55;
     --gold-tint:#FBF1D8;
-    --gold-deep:#A9801F;
+    --gold-deep:#a3821c;
     --white:#ffffff;
     --paper:#FAFAF9;
     --ink:#0B1220;
@@ -30,8 +30,8 @@
     --font-body:'Inter',sans-serif;
     --radius-lg:28px;
     --radius-md:18px;
-    --shadow-soft:0 20px 50px -20px rgba(7,18,39,0.18);
-    --shadow-card:0 12px 30px -14px rgba(7,18,39,0.16);
+    --shadow-soft:0 20px 50px -20px rgba(1,15,36,0.18);
+    --shadow-card:0 12px 30px -14px rgba(1,15,36,0.16);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -199,15 +199,15 @@
 
   .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .case-card{border-radius:var(--radius-md);overflow:hidden;position:relative;background:var(--paper);box-shadow:var(--shadow-card);transition:transform .3s ease,box-shadow .3s ease;}
-  .case-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px -18px rgba(7,18,39,.28);}
+  .case-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px -18px rgba(1,15,36,.28);}
   .case-media{width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;background:repeating-linear-gradient(135deg,#f6f4ee 0 14px,#ece8db 14px 28px);}
-  .case-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .case-img{background:var(--white);position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
   .case-card:hover .case-img{transform:scale(1.04);}
   .case-pill{position:absolute;top:16px;right:16px;z-index:2;background:var(--gold);color:var(--navy-deep);font-size:11px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;padding:6px 13px;border-radius:999px;}
-  .case-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,18,39,0) 30%,rgba(7,18,39,.86) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;}
+  .case-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,15,36,0) 30%,rgba(1,15,36,.86) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;}
   .case-overlay h3{font-family:var(--font-display);font-weight:700;font-size:16.5px;color:var(--white);line-height:1.25;}
   .case-overlay p{margin-top:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.8);}
-  .case-view{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--gold-soft);width:fit-content;padding-bottom:2px;border-bottom:1px solid rgba(228,194,98,.4);transition:color .2s ease,border-color .2s ease,gap .2s ease;}
+  .case-view{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--gold-soft);width:fit-content;padding-bottom:2px;border-bottom:1px solid rgba(220,188,85,.4);transition:color .2s ease,border-color .2s ease,gap .2s ease;}
   .case-view svg{width:13px;height:13px;flex-shrink:0;transition:transform .2s ease;}
   .case-card:hover .case-view{color:var(--gold);border-color:var(--gold);gap:9px;}
   .case-card:hover .case-view svg{transform:translateX(2px);}
@@ -238,7 +238,7 @@
           <a href="/#services">All Services</a>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
@@ -248,7 +248,7 @@
       <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
       <a href="/#contact">Contact</a>
       <a href="/#contact" class="mobile-nav-cta">Get in Touch
-        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#0E2A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#011d42" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
       </a>
     </nav>
     <a href="/#contact" class="header-cta">Get in Touch</a>
@@ -261,7 +261,7 @@
   <div class="wrap">
     <p class="breadcrumb"><a href="index.html">Home</a> / Case Studies</p>
     <h1>See the Results</h1>
-    <p class="lede">Discover how we've helped businesses across the globe achieve online success — through strategy, advertising, and consistent execution.</p>
+    <p class="lede">Discover how we’ve helped businesses across the globe achieve online success. Through strategy, advertising and consistent execution.</p>
     <div class="results-swiper swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="1.jpg" alt="MAJ Media Digital results screenshot"></div>
@@ -276,10 +276,12 @@
 
 <section class="svc-section">
   <div class="wrap">
+    <span class="section-kicker">Portfolio</span>
+    <h2 style="margin-bottom:28px;">Some of Our Projects</h2>
     <div class="case-grid">
       <div class="case-card">
         <div class="case-media">
-          <img class="case-img" src="Keltim_Global_Case_study.jpg" alt="Keltims Global construction brand case study">
+          <img class="case-img" src="Keltim_Global_Case_study.jpg" alt="Keltims Global case study" loading="lazy">
           <span class="case-pill">Construction</span>
           <div class="case-overlay">
             <h3>Keltims Global — Construction Brand</h3>
@@ -290,10 +292,10 @@
       </div>
       <div class="case-card">
         <div class="case-media">
-          <img class="case-img" src="Branding___Cont_Development_Project.jpg" alt="Atlanta wellness brand branding and content development project">
+          <img class="case-img" src="Branding___Cont_Development_Project.jpg" alt="Atlanta Wellness Brand case study" loading="lazy">
           <span class="case-pill">Branding</span>
           <div class="case-overlay">
-            <h3>Atlanta Wellness Brand — Branding & Content Development</h3>
+            <h3>Atlanta Wellness Brand — Branding &amp; Content Development</h3>
             <p>How MAJ Media Digital restructured their online identity.</p>
             <a href="case-atlanta-wellness.html" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
@@ -301,7 +303,7 @@
       </div>
       <div class="case-card">
         <div class="case-media">
-          <img class="case-img" src="Eileynova_Case_Study.jpg" alt="Eileynova social media management case study">
+          <img class="case-img" src="Eileynova_Case_Study.jpg" alt="Eileynova case study" loading="lazy">
           <span class="case-pill">Social Media</span>
           <div class="case-overlay">
             <h3>Eileynova — From Invisible to Noticed</h3>
@@ -312,16 +314,18 @@
       </div>
       <div class="case-card">
         <div class="case-media">
+          <video class="case-img" src="Val%20room.mov#t=0.1" muted playsinline preload="metadata"></video>
           <span class="case-pill">Content Creation</span>
           <div class="case-overlay">
             <h3>Hotel Client — Viral Online Launch</h3>
-            <p>Content creation & launch strategy that drove organic bookings before ads even went live.</p>
+            <p>Content creation &amp; launch strategy that drove organic bookings before ads even went live.</p>
             <a href="case-hotel-launch.html" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
       <div class="case-card">
         <div class="case-media">
+          <img class="case-img" src="Uk%20Africa%20screenshot.jpg" alt="UK Events Company case study" loading="lazy">
           <span class="case-pill">Lead Generation</span>
           <div class="case-overlay">
             <h3>UK Events Company — Lead Generation</h3>
@@ -332,16 +336,18 @@
       </div>
       <div class="case-card">
         <div class="case-media">
+          <img class="case-img" src="AGM.jpg" alt="Toronto B2B Brand case study" loading="lazy">
           <span class="case-pill">LinkedIn Growth</span>
           <div class="case-overlay">
             <h3>Toronto B2B Brand — LinkedIn Growth</h3>
-            <p>Growing a Toronto-based B2B brand's LinkedIn presence and connecting to its intended audience.</p>
+            <p>Growing a Toronto-based B2B brand’s LinkedIn presence and connecting to its intended audience.</p>
             <a href="case-agm-linkedin.html" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
       <div class="case-card">
         <div class="case-media">
+          <img class="case-img" src="Dr%20smith%20feed.jpg" alt="Sales Coach case study" loading="lazy">
           <span class="case-pill">Personal Branding</span>
           <div class="case-overlay">
             <h3>Sales Coach — Personal Brand</h3>
@@ -352,11 +358,34 @@
       </div>
       <div class="case-card">
         <div class="case-media">
+          <img class="case-img" src="Neander%20feed.jpg" alt="Private School case study" loading="lazy">
           <span class="case-pill">Education</span>
           <div class="case-overlay">
             <h3>Private School — Wider Audience</h3>
             <p>Content creation positioning a premium private school for a wider pool of prospective parents.</p>
             <a href="case-neander-school.html" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-media">
+          <img class="case-img" src="Arkan%20feed%20numbers.jpg" alt="Ceramics Brand case study" loading="lazy">
+          <span class="case-pill">Social Media Marketing</span>
+          <div class="case-overlay">
+            <h3>International Ceramics Brand — Nigerian Market</h3>
+            <p>Establishing an international ceramics brand in the Nigerian market.</p>
+            <a href="case-arkan-ceramics.html" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-media">
+          <img class="case-img" src="Limeridge%20feed.jpg" alt="Hotels &amp; Restaurants case study" loading="lazy">
+          <span class="case-pill">Hospitality</span>
+          <div class="case-overlay">
+            <h3>Hotels &amp; Restaurants — Bookings &amp; Revenue</h3>
+            <p>How we turned social media into a booking &amp; revenue channel for hotels and restaurants.</p>
+            <a href="case-hotels-restaurants.html" class="case-view">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
@@ -370,7 +399,7 @@
       <h2>Ready to become our next case study?</h2>
       <p>Tell us about your brand and goals — we'll map out the right plan and next steps.</p>
       <div class="cta-row">
-        <a href="index.html#contact" class="btn-primary">Start a Project</a>
+        <a href="index.html#contact" class="btn-primary">Get in Touch</a>
         <a href="https://wa.me/2348108427617" target="_blank" rel="noopener" class="btn-ghost" style="border-color:var(--white);color:var(--white);">Chat on WhatsApp</a>
       </div>
     </div>
@@ -396,7 +425,7 @@
           <h4>Services</h4>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>

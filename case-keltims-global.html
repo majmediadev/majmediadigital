@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keltims Global Case Study — MAJ Media Digital</title>
-<meta name="description" content="Construction Brand: Building a Converting Social Media Presence — a case study by MAJ Media Digital.">
+<meta name="description" content="Construction Brand: How we built a converting social media presence from scratch for Keltims Global">
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0E2A4D;
-    --navy-deep:#071227;
+    --navy:#011d42;
+    --navy-deep:#010f24;
     --navy-tint:#E8EEF6;
-    --gold:#CDA434;
-    --gold-soft:#E4C262;
+    --gold:#c9a227;
+    --gold-soft:#dcbc55;
     --gold-tint:#FBF1D8;
-    --gold-deep:#A9801F;
+    --gold-deep:#a3821c;
     --white:#ffffff;
     --paper:#FAFAF9;
     --ink:#0B1220;
@@ -27,10 +27,11 @@
     --max:1180px;
     --font-display:'Bricolage Grotesque','Inter',sans-serif;
     --font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
     --radius-lg:28px;
     --radius-md:18px;
-    --shadow-soft:0 20px 50px -20px rgba(7,18,39,0.18);
-    --shadow-card:0 12px 30px -14px rgba(7,18,39,0.16);
+    --shadow-soft:0 20px 50px -20px rgba(1,15,36,0.18);
+    --shadow-card:0 12px 30px -14px rgba(1,15,36,0.16);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -194,6 +195,43 @@
     .case-meta-grid{grid-template-columns:repeat(2,1fr);}
     .related-cases{grid-template-columns:1fr;}
   }
+
+  /* ---------- PDF update: case-study media + lists ---------- */
+  .case-hero.no-media{padding-bottom:56px;}
+  .case-body ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;max-width:70ch;}
+  .case-body li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft);line-height:1.6;}
+  .case-body li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--gold-tint);border:2px solid var(--gold);}
+  .case-body p + p, .case-body p + ul, .case-body ul + p{margin-top:14px;}
+  .case-body .results-block li{color:var(--navy);font-weight:500;}
+  .case-body .results-block li::before{background:var(--gold);}
+  .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center;align-items:start;gap:24px;margin-top:26px;}
+  .media-item{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;}
+  .media-item a{display:block;background:var(--white);}
+  .media-item img,.media-item video{display:block;width:100%;height:auto;max-height:640px;object-fit:contain;background:var(--white);}
+  .media-item figcaption{padding:12px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);border-top:1px solid var(--line);}
+  .media-item[data-media]:not(.ready){display:none;}
+  .media-item.wide{grid-column:1/-1;max-width:780px;width:100%;justify-self:center;}
+  .media-item.wide img{max-height:none;}
+  @media(max-width:600px){.media-grid{grid-template-columns:1fr;}.media-item img,.media-item video{max-height:560px;}}
+
+  /* ---------- PDF update: case-study media + lists ---------- */
+  .case-hero.no-media{padding-bottom:56px;}
+  .case-body ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;max-width:70ch;}
+  .case-body li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft);line-height:1.6;}
+  .case-body li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--gold-tint);border:2px solid var(--gold);}
+  .case-body p + p, .case-body p + ul, .case-body ul + p{margin-top:14px;}
+  .case-body .results-block li{color:var(--navy);font-weight:500;}
+  .case-body .results-block li::before{background:var(--gold);}
+  .media-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:24px;margin-top:26px;}
+  .media-grid .media-item{flex:0 1 340px;width:340px;max-width:100%;}
+  .media-item{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;}
+  .media-item a{display:block;background:var(--white);}
+  .media-item img,.media-item video{display:block;width:100%;height:auto;max-height:640px;object-fit:contain;background:var(--white);}
+  .media-item figcaption{padding:12px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);border-top:1px solid var(--line);}
+  .media-item[data-media]:not(.ready){display:none;}
+  .media-grid .media-item.wide{flex:0 1 780px;width:780px;}
+  .media-item.wide img{max-height:none;}
+  @media(max-width:600px){.media-item img,.media-item video{max-height:560px;}}
 </style>
 </head>
 <body>
@@ -211,7 +249,7 @@
           <a href="/#services">All Services</a>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
@@ -221,7 +259,7 @@
       <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
       <a href="/#contact">Contact</a>
       <a href="/#contact" class="mobile-nav-cta">Get in Touch
-        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#0E2A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#011d42" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
       </a>
     </nav>
     <a href="/#contact" class="header-cta">Get in Touch</a>
@@ -234,60 +272,42 @@
   <div class="wrap">
     <p class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / Keltims Global</p>
     <span class="tag-pill">Construction</span>
-    <h1>Construction Brand: Building a Converting Social Media Presence</h1>
-    <p class="lede">How we built a converting social media presence from scratch for Keltims Global.</p>
+    <h1>Construction Brand: How we built a converting social media presence from scratch for Keltims Global</h1>
     <div class="case-hero-media"><img src="Keltim_Global_Case_study.jpg" alt="Keltims Global case study"></div>
   </div>
 </section>
 
-<section class="svc-section" style="padding-top:28px;">
+<section class="svc-section" style="padding-top:44px;">
   <div class="wrap">
-    <!-- PENDING MEDIA: "Kellims video" — client hasn't sent this yet. Drop the file/link in the block below once received. -->
-    <div class="uc-banner">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
-      <div>
-        <h3>Case study video coming soon</h3>
-        <p>The full write-up below is ready. We're still waiting on the client's video for this project — it'll be added here as soon as it's supplied.</p>
-      </div>
+    <span class="section-kicker">See the Work</span>
+    <div class="media-grid">
+      <figure class="media-item" data-media="Keltims video" data-exts="mov,mp4"><figcaption>Keltims Global — case study video</figcaption></figure>
     </div>
 
     <div class="case-meta-grid">
-      <div class="case-meta-item"><h4>Client</h4><p>Keltims Global</p></div>
-      <div class="case-meta-item"><h4>Industry</h4><p>Construction</p></div>
-      <div class="case-meta-item"><h4>Services</h4><p>Social Media Management</p></div>
-      <div class="case-meta-item"><h4>Status</h4><p>Completed</p></div>
+      <div class="case-meta-item"><h4>Client</h4><p>Keltims Global</p></div><div class="case-meta-item"><h4>Industry</h4><p>Construction</p></div><div class="case-meta-item"><h4>Services</h4><p>Social Media Management, Ads</p></div><div class="case-meta-item"><h4>Headline Result</h4><p>300% ROAS</p></div>
     </div>
 
     <div class="case-body">
       <div class="case-block">
         <h2>The Brief</h2>
-        <p>Keltims Global needed to position itself as a trusted supplier of high-ticket construction materials while attracting buyers and decision-makers — building a strong online presence and credibility in an industry with an older audience base.</p>
+        <p>Client needed to position itself as a trusted supplier of high-ticket construction materials while attracting buyers and decision-makers. The goal was to showcase the brand, build a strong online presence &amp; credibility in an industry with an “older” audience base.</p>
       </div>
       <div class="case-block">
         <h2>The Challenge</h2>
-        <p>Here's what we met when we came onboard:</p>
-        <ul>
-          <li>No consistent online presence</li>
-          <li>No clear content strategy</li>
-          <li>Poor content quality</li>
-          <li>Ads had never been launched</li>
-          <li>Zero leads & inquiries</li>
-        </ul>
+        <p>Here’s what we met when we came onboard:</p>
+        <ul><li>No consistent online presence</li><li>No clear content strategy</li><li>Poor content quality</li><li>Ads had never been launched</li><li>Zero leads &amp; inquiries</li></ul>
       </div>
       <div class="case-block">
-        <h2>What We Did</h2>
-        <p>After researching the audience and the best platforms to use, we repositioned the existing online presence around quality, human-led content. Because people don't buy from brands they don't know or trust, we used a familiar face to speak directly to high-ticket buyers through customer pain points, product specifications, project transformations, and industry education.</p>
-        <p>We also deployed targeted ad campaigns aimed at decision-makers, optimizing for leads and inquiries — using targeted audiences, strong visuals that addressed customer needs, and time-bound offers.</p>
+        <h2>Our Execution</h2>
+        <p>After our initial research on the audience &amp; best platforms to use, we began repositioning the existing online presence with quality content. We developed a strategy centered on human-led content to build trust and authority.</p>
+        <p>Because we know that people do not buy from brands they do not know or trust, we used quality content to grab the attention of the intended audience. Using a particular face for familiarity, we spoke to high-ticket buyers using:</p>
+        <ul><li>Customer pain points</li><li>Product specifications</li><li>Project transformations</li><li>Industry education etc</li></ul>
+        <p>Additionally, we deployed targeted ad campaigns aimed at decision-makers, optimizing for leads and inquiries. We achieved this using; targeted audiences, strong visuals that addressed customer needs &amp; time-bound offers.</p>
       </div>
-      <div class="case-block">
-        <h2>The Results</h2>
-        <ul>
-          <li>Generated hundreds of inbound messages monthly from prospective customers, with a 300% ROAS</li>
-          <li>Increased walk-in customers by 40%, directly linked to social media visibility</li>
-          <li>Grew the page to 12k+ followers in one year</li>
-          <li>Strengthened brand trust, making the business more approachable and credible through human-centered content</li>
-          <li>Turned social media into a consistent driver of both online inquiries and offline sales</li>
-        </ul>
+      <div class="case-block results-block">
+        <h2>The Result</h2>
+        <ul><li>Generated 100s of inbound messages monthly from prospective customers &amp; 300% ROAS</li><li>Increased walk-in customers by 40%, directly linked to social media visibility</li><li>Grew page to 12k+ in 1 year.</li><li>Strengthened brand trust, making the business more approachable and credible through human-centered content</li><li>Turned social media into a consistent driver of both online inquiries and offline sales</li></ul>
       </div>
     </div>
   </div>
@@ -299,7 +319,7 @@
       <h2>Want results like this for your brand?</h2>
       <p>Tell us about your brand and goals — we'll map out the right plan and next steps.</p>
       <div class="cta-row">
-        <a href="index.html#contact" class="btn-primary">Start a Project</a>
+        <a href="index.html#contact" class="btn-primary">Get in Touch</a>
         <a href="https://wa.me/2348108427617" target="_blank" rel="noopener" class="btn-ghost" style="border-color:var(--white);color:var(--white);">Chat on WhatsApp</a>
       </div>
     </div>
@@ -311,8 +331,8 @@
     <span class="section-kicker">More Case Studies</span>
     <h2>Other projects</h2>
     <div class="related-cases">
-      <div class="related-card"><h4>Atlanta Wellness Brand</h4><p>How MAJ Media Digital restructured the online identity of an Atlanta-based wellness brand.</p><a href="case-atlanta-wellness.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
-      <div class="related-card"><h4>Eileynova</h4><p>A dive into the full-scale social media management behind Eileynova's growth.</p><a href="case-eileynova.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div class="related-card"><h4>Atlanta Wellness Brand</h4><p>How MAJ Media Digital restructured their online identity.</p><a href="case-atlanta-wellness.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div class="related-card"><h4>Eileynova</h4><p>A dive into the full-scale social media management behind the growth.</p><a href="case-eileynova.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -336,7 +356,7 @@
           <h4>Services</h4>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
@@ -382,6 +402,22 @@
       const open = dd.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open);
     });
+  });
+
+  // Loads media whose extension isn't known yet; hides the block if the file isn't in the repo.
+  document.querySelectorAll('[data-media]').forEach(fig => {
+    const base = fig.dataset.media, exts = fig.dataset.exts.split(','), cap = fig.querySelector('figcaption');
+    let i = 0;
+    const next = () => {
+      if (i >= exts.length) { fig.remove(); return; }
+      const ext = exts[i++].toLowerCase(), url = encodeURI(base + '.' + ext);
+      const isVid = ['mov','mp4','webm'].includes(ext);
+      const el = document.createElement(isVid ? 'video' : 'img');
+      if (isVid) { el.controls = true; el.playsInline = true; el.preload = 'metadata'; el.src = url + '#t=0.1'; el.addEventListener('loadedmetadata', () => { fig.insertBefore(el, cap); fig.classList.add('ready'); }); }
+      else { el.alt = base; el.src = url; el.addEventListener('load', () => { fig.insertBefore(el, cap); fig.classList.add('ready'); }); }
+      el.addEventListener('error', next);
+    };
+    next();
   });
 </script>
 
