@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sales Coach Case Study — MAJ Media Digital</title>
-<meta name="description" content="Personal Brand: Using Content Creation to position a high-ticket sales coach on social media — a case study by MAJ Media Digital.">
+<meta name="description" content="Personal Brand: Using Content Creation to position a high ticket sales coach on social media">
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0E2A4D;
-    --navy-deep:#071227;
+    --navy:#011d42;
+    --navy-deep:#010f24;
     --navy-tint:#E8EEF6;
-    --gold:#CDA434;
-    --gold-soft:#E4C262;
+    --gold:#c9a227;
+    --gold-soft:#dcbc55;
     --gold-tint:#FBF1D8;
-    --gold-deep:#A9801F;
+    --gold-deep:#a3821c;
     --white:#ffffff;
     --paper:#FAFAF9;
     --ink:#0B1220;
@@ -27,10 +27,11 @@
     --max:1180px;
     --font-display:'Bricolage Grotesque','Inter',sans-serif;
     --font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
     --radius-lg:28px;
     --radius-md:18px;
-    --shadow-soft:0 20px 50px -20px rgba(7,18,39,0.18);
-    --shadow-card:0 12px 30px -14px rgba(7,18,39,0.16);
+    --shadow-soft:0 20px 50px -20px rgba(1,15,36,0.18);
+    --shadow-card:0 12px 30px -14px rgba(1,15,36,0.16);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -194,6 +195,43 @@
     .case-meta-grid{grid-template-columns:repeat(2,1fr);}
     .related-cases{grid-template-columns:1fr;}
   }
+
+  /* ---------- PDF update: case-study media + lists ---------- */
+  .case-hero.no-media{padding-bottom:56px;}
+  .case-body ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;max-width:70ch;}
+  .case-body li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft);line-height:1.6;}
+  .case-body li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--gold-tint);border:2px solid var(--gold);}
+  .case-body p + p, .case-body p + ul, .case-body ul + p{margin-top:14px;}
+  .case-body .results-block li{color:var(--navy);font-weight:500;}
+  .case-body .results-block li::before{background:var(--gold);}
+  .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center;align-items:start;gap:24px;margin-top:26px;}
+  .media-item{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;}
+  .media-item a{display:block;background:var(--white);}
+  .media-item img,.media-item video{display:block;width:100%;height:auto;max-height:640px;object-fit:contain;background:var(--white);}
+  .media-item figcaption{padding:12px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);border-top:1px solid var(--line);}
+  .media-item[data-media]:not(.ready){display:none;}
+  .media-item.wide{grid-column:1/-1;max-width:780px;width:100%;justify-self:center;}
+  .media-item.wide img{max-height:none;}
+  @media(max-width:600px){.media-grid{grid-template-columns:1fr;}.media-item img,.media-item video{max-height:560px;}}
+
+  /* ---------- PDF update: case-study media + lists ---------- */
+  .case-hero.no-media{padding-bottom:56px;}
+  .case-body ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;max-width:70ch;}
+  .case-body li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft);line-height:1.6;}
+  .case-body li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--gold-tint);border:2px solid var(--gold);}
+  .case-body p + p, .case-body p + ul, .case-body ul + p{margin-top:14px;}
+  .case-body .results-block li{color:var(--navy);font-weight:500;}
+  .case-body .results-block li::before{background:var(--gold);}
+  .media-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:24px;margin-top:26px;}
+  .media-grid .media-item{flex:0 1 340px;width:340px;max-width:100%;}
+  .media-item{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;}
+  .media-item a{display:block;background:var(--white);}
+  .media-item img,.media-item video{display:block;width:100%;height:auto;max-height:640px;object-fit:contain;background:var(--white);}
+  .media-item figcaption{padding:12px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);border-top:1px solid var(--line);}
+  .media-item[data-media]:not(.ready){display:none;}
+  .media-grid .media-item.wide{flex:0 1 780px;width:780px;}
+  .media-item.wide img{max-height:none;}
+  @media(max-width:600px){.media-item img,.media-item video{max-height:560px;}}
 </style>
 </head>
 <body>
@@ -211,7 +249,7 @@
           <a href="/#services">All Services</a>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
@@ -221,7 +259,7 @@
       <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
       <a href="/#contact">Contact</a>
       <a href="/#contact" class="mobile-nav-cta">Get in Touch
-        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#0E2A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+        <span class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#011d42" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
       </a>
     </nav>
     <a href="/#contact" class="header-cta">Get in Touch</a>
@@ -230,34 +268,24 @@
 </header>
 
 
-<section class="case-hero">
+<section class="case-hero no-media">
   <div class="wrap">
-    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / Sales Coach Personal Brand</p>
+    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / Sales Coach</p>
     <span class="tag-pill">Personal Branding</span>
-    <h1>Personal Brand: Positioning a High-Ticket Sales Coach on Social Media</h1>
-    <p class="lede">Using content creation to position a high-ticket sales coach as a credible authority on social media.</p>
-    <div class="case-hero-media" style="aspect-ratio:16/8;background:repeating-linear-gradient(135deg,#f6f4ee 0 14px,#ece8db 14px 28px);display:flex;align-items:center;justify-content:center;">
-      <p style="font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);background:rgba(255,255,255,.85);padding:8px 16px;border-radius:999px;">the client's video (internally tagged &ldquo;Smith Video&rdquo;)</p>
-    </div>
+    <h1>Personal Brand: Using Content Creation to position a high ticket sales coach on social media</h1>
   </div>
 </section>
 
-<section class="svc-section" style="padding-top:28px;">
+<section class="svc-section" style="padding-top:44px;">
   <div class="wrap">
-    <!-- PENDING MEDIA: the client's video (internally tagged &ldquo;Smith Video&rdquo;) — client hasn't sent this yet. Drop the file/link into the hero placeholder above once received. -->
-    <div class="uc-banner">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
-      <div>
-        <h3>Case study visuals coming soon</h3>
-        <p>The full write-up below is ready. We're still waiting on the client's video (internally tagged &ldquo;Smith Video&rdquo;) for this project — it'll be added here as soon as it's supplied.</p>
-      </div>
+    <span class="section-kicker">See the Work</span>
+    <div class="media-grid">
+      <figure class="media-item"><a href="Dr%20smith%20feed.jpg" target="_blank" rel="noopener"><img src="Dr%20smith%20feed.jpg" alt="Sales coach Instagram feed" loading="lazy"></a><figcaption>Instagram feed — sales coach</figcaption></figure>
+      <figure class="media-item"><video controls playsinline preload="metadata" src="Smith%20video.mov#t=0.1" onerror="this.closest('figure').remove()"></video><figcaption>Sales coach content video</figcaption></figure>
     </div>
 
     <div class="case-meta-grid">
-      <div class="case-meta-item"><h4>Client</h4><p>Sales Coach & Consultant</p></div>
-      <div class="case-meta-item"><h4>Industry</h4><p>Coaching & Training</p></div>
-      <div class="case-meta-item"><h4>Services</h4><p>Content Creation, Personal Branding, Ads Management</p></div>
-      <div class="case-meta-item"><h4>Status</h4><p>Completed</p></div>
+      <div class="case-meta-item"><h4>Client</h4><p>Sales Coach &amp; Consultant</p></div><div class="case-meta-item"><h4>Industry</h4><p>Sales Training</p></div><div class="case-meta-item"><h4>Services</h4><p>Personal Branding, Content Creation</p></div><div class="case-meta-item"><h4>Headline Result</h4><p>105K+ views</p></div>
     </div>
 
     <div class="case-body">
@@ -267,32 +295,16 @@
       </div>
       <div class="case-block">
         <h2>The Challenge</h2>
-        <p>Here's what we met when we came onboard:</p>
-        <ul>
-          <li>His existing online presence did not fully reflect the level of expertise or value behind his training</li>
-          <li>Existing content was not of great quality and did not fit the pricing behind his services</li>
-        </ul>
+        <p>Here’s what we met when we came onboard:</p>
+        <ul><li>His existing online presence did not fully reflect the level of expertise or value behind his training.</li><li>Existing content was not of great quality and did not fit the pricing behind his services.</li></ul>
       </div>
       <div class="case-block">
-        <h2>What We Did</h2>
-        <p>Our execution:</p>
-        <ul>
-          <li>Completely elevated his social media presence, moving from a dull and underdeveloped look to a more premium, polished brand experience</li>
-          <li>Created a mix of talking-head videos, lifestyle content, training-day coverage and behind-the-scenes moments to bring his expertise and personality to life</li>
-          <li>Built content around his expertise, allowing him to consistently share sales insights, practical advice and professional perspectives</li>
-          <li>Documented his live trainings and classes to give prospective clients a stronger sense of the experience and value behind his programs</li>
-          <li>Supported key training campaigns with targeted advertising designed to drive registrations and fill available class slots</li>
-        </ul>
-
+        <h2>Our Execution</h2>
+        <ul><li>Completely elevated his social media presence, moving from a dull and underdeveloped look to a more premium, polished brand experience.</li><li>Created a mix of talking-head videos, lifestyle content, training-day coverage and behind-the-scenes moments to bring his expertise and personality to life.</li><li>Built content around his expertise, allowing him to consistently share sales insights, practical advice and professional perspectives.</li><li>Documented his live trainings and classes to give prospective clients a stronger sense of the experience and value behind his programs.</li><li>Supported key training campaigns with targeted advertising designed to drive registrations and fill available class slots.</li></ul>
       </div>
-      <div class="case-block">
-        <h2>The Results</h2>
-        <ul>
-          <li>105K+ views from content created</li>
-          <li>Increased visibility and reach across social media</li>
-          <li>Successfully used ad campaigns to drive registrations for his training programs</li>
-          <li>Transformed his online presence into a more premium, credible and engaging personal brand</li>
-        </ul>
+      <div class="case-block results-block">
+        <h2>The Result</h2>
+        <ul><li>105K+ views from content created</li><li>Increased visibility and reach across social media</li><li>Successfully used Ad campaigns to drive registrations for his training programs</li><li>Transformed his online presence into a more premium, credible and engaging personal brand</li></ul>
       </div>
     </div>
   </div>
@@ -304,7 +316,7 @@
       <h2>Want results like this for your brand?</h2>
       <p>Tell us about your brand and goals — we'll map out the right plan and next steps.</p>
       <div class="cta-row">
-        <a href="index.html#contact" class="btn-primary">Start a Project</a>
+        <a href="index.html#contact" class="btn-primary">Get in Touch</a>
         <a href="https://wa.me/2348108427617" target="_blank" rel="noopener" class="btn-ghost" style="border-color:var(--white);color:var(--white);">Chat on WhatsApp</a>
       </div>
     </div>
@@ -316,8 +328,8 @@
     <span class="section-kicker">More Case Studies</span>
     <h2>Other projects</h2>
     <div class="related-cases">
-      <div class="related-card"><h4>Private School Client</h4><p>Content creation positioning a premium private school for a wider audience.</p><a href="case-neander-school.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
-      <div class="related-card"><h4>Hotel Client</h4><p>Content creation & viral online launch for a new hotel's rooms & restaurant.</p><a href="case-hotel-launch.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div class="related-card"><h4>Private School</h4><p>Content creation positioning a premium private school for a wider pool of prospective parents.</p><a href="case-neander-school.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div class="related-card"><h4>Ceramics Brand</h4><p>Establishing an international ceramics brand in the Nigerian market.</p><a href="case-arkan-ceramics.html" class="lnk">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 18l6-6-6-6"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -341,7 +353,7 @@
           <h4>Services</h4>
           <a href="/social-media-management">Social Media Management</a>
           <a href="/content-creation">Content Creation</a>
-          <a href="/ads-management">Ads Management</a>
+          <a href="/ads-management">Performance Marketing</a>
           <a href="/branding">Branding</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Training</a>
         </div>
