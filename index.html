@@ -750,12 +750,6 @@
       <div class="impact-paragraph">
         <p>Every campaign we run is built to move the numbers that matter — reach, engagement, and revenue. Here's what that's added up to for the brands we work with.</p>
       </div>
-      <div class="impact-media">
-        <img src="company.jpg" alt="The MAJ Media Digital team at work">
-        <div class="impact-play" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
       <div class="impact-stats">
         <div class="impact-stat">
           <div class="num">350+</div>
@@ -985,15 +979,6 @@
         <a href="mailto:hello@majmediadigital.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>hello@majmediadigital.com</a>
       </div>
     </div>
-    <form class="contact-form" id="contactForm">
-      <div class="row">
-        <label>Full name<input type="text" name="name" required autocomplete="name"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
-      </div>
-      <label>WhatsApp / phone number<input type="tel" name="phone" autocomplete="tel"></label>
-      <label>How can we help?<textarea name="message" required></textarea></label>
-      <button type="submit">Send Message</button>
-    </form>
   </div>
 </section>
 
@@ -1150,13 +1135,6 @@
       }, 100);
     });
   })();
-
-  document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const body = `Name: ${f.get('name')}\nEmail: ${f.get('email')}\nPhone/WhatsApp: ${f.get('phone') || '-'}\n\n${f.get('message')}`;
-    window.location.href = 'mailto:hello@majmediadigital.com?subject=' + encodeURIComponent('New enquiry from ' + f.get('name')) + '&body=' + encodeURIComponent(body);
-  });
 </script>
 
 </body>
