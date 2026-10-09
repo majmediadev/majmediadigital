@@ -168,41 +168,47 @@
   .hero-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
 
   /* Video panel — sits BELOW the hero text, not behind it */
+  /* Active video centred; half of the neighbouring video peeks in on both sides */
   .hero-media{
     position:relative;overflow:hidden;
-    max-width:var(--max);margin:64px auto 0;padding:0 32px;
+    max-width:1400px;margin:64px auto 0;padding:0;
   }
   .hero-media-inner{
-    position:relative;overflow:hidden;border-radius:var(--radius-lg);
+    position:relative;
     height:70vh;min-height:420px;max-height:680px;
-    background:var(--navy-deep);
   }
   .hero-slides{position:absolute;inset:0;}
-  .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;pointer-events:none;}
-  .hero-slide.is-active{opacity:1;pointer-events:auto;}
-  .hero-slide video{width:100%;height:100%;object-fit:cover;}
-  .hero-slides::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(1,15,36,0.05) 0%, rgba(1,15,36,0) 40%, rgba(1,15,36,0.35) 100%);
-    z-index:1;
+  .hero-slide{
+    position:absolute;top:0;left:50%;height:100%;
+    width:calc(50% - 14px);margin-left:calc(-25% + 7px);
+    border-radius:var(--radius-lg);overflow:hidden;background:var(--navy-deep);
+    opacity:0.7;cursor:pointer;
+    transition:transform 0.7s cubic-bezier(.22,.8,.3,1), opacity 0.7s ease;
+    will-change:transform;
+  }
+  .hero-slide.is-active{opacity:1;cursor:default;}
+  .hero-slide video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+  .hero-slide::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg, rgba(1,15,36,0.05) 0%, rgba(1,15,36,0) 40%, rgba(1,15,36,0.25) 100%);
   }
 
-  .hero-controls{position:absolute;left:0;right:0;bottom:24px;z-index:3;display:flex;align-items:center;justify-content:center;gap:22px;}
+  /* controls sit centred below the videos */
+  .hero-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px;padding:0 20px;}
   .hero-arrow,.hero-playpause{
     width:40px;height:40px;border-radius:50%;
-    border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);
+    border:1px solid var(--line);background:var(--white);
     backdrop-filter:blur(6px);
-    display:flex;align-items:center;justify-content:center;color:var(--white);
+    display:flex;align-items:center;justify-content:center;color:var(--navy);
     transition:background 0.2s ease, border-color 0.2s ease;
   }
-  .hero-arrow:hover,.hero-playpause:hover{background:rgba(255,255,255,0.28);border-color:var(--gold);}
+  .hero-arrow:hover,.hero-playpause:hover{background:var(--navy-tint);border-color:var(--gold);}
   .hero-arrow svg{width:16px;height:16px;}
   .hero-playpause svg{width:14px;height:14px;}
   .hero-dots{display:flex;align-items:center;gap:9px;}
-  .hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.4);border:none;padding:0;transition:background 0.25s ease, transform 0.25s ease;}
+  .hero-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:none;padding:0;transition:background 0.25s ease, transform 0.25s ease;}
   .hero-dot.is-active{background:var(--gold);transform:scale(1.35);}
-  .hero-position{position:absolute;right:24px;bottom:28px;z-index:3;color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:0.04em;display:none;}
-  @media(min-width:860px){.hero-position{display:block;}}
+  .hero-position{display:none;}
   @media(max-width:640px){
     .hero{padding-top:104px;padding-bottom:56px;}
     .hero-eyebrow-line{margin-bottom:12px;}
@@ -210,8 +216,10 @@
     .hero-content .lede{margin-top:10px;}
     .hero-content .body-copy{margin-top:12px;font-size:16px;}
     .hero-cta{margin-top:18px;}
-    .hero-media{margin-top:32px;padding:0 20px;}
-    .hero-media-inner{height:56vh;min-height:340px;border-radius:var(--radius-md);}
+    .hero-media{margin-top:32px;}
+    .hero-media-inner{height:56vh;min-height:340px;}
+    .hero-slide{border-radius:var(--radius-md);}
+    .hero-controls{gap:14px;margin-top:18px;}
   }
 
   /* ---------- Section shells ---------- */
@@ -235,7 +243,7 @@
     background:radial-gradient(circle, rgba(201,162,39,0.14) 0%, rgba(201,162,39,0) 68%);
     filter:blur(10px);pointer-events:none;
   }
-  .orbit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+  .orbit-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center;position:relative;z-index:1;}
   .orbit-text h2{font-size:clamp(30px,3.6vw,44px);color:var(--navy);}
   .orbit-text p{margin-top:18px;color:var(--ink-soft);font-size:16.5px;max-width:44ch;}
   .orbit-stat-line{margin-top:30px;display:flex;gap:34px;}
@@ -258,10 +266,10 @@
     mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
   .logo-track{display:flex;align-items:center;gap:64px;width:max-content;
     animation:logoScroll 28s linear infinite;}
-  .logo-marquee:hover .logo-track{animation-play-state:paused;}
+  .logo-marquee,.logo-track,.logo-track img{pointer-events:none;-webkit-user-select:none;user-select:none;touch-action:auto;}
+  .logo-track{animation-play-state:running !important;}
   .logo-track img{height:44px;width:auto;max-width:150px;object-fit:contain;
     opacity:0.75;filter:grayscale(100%);transition:opacity 0.25s ease,filter 0.25s ease;}
-  .logo-track img:hover{opacity:1;filter:grayscale(0%);}
   @keyframes logoScroll{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
@@ -283,7 +291,7 @@
     display:grid;
     grid-template-columns:1fr 1fr;
     grid-template-areas:
-      "heading paragraph"
+      "heading heading"
       "media stats"
       "button stats";
     column-gap:56px;
@@ -331,7 +339,6 @@
       grid-template-columns:1fr;
       grid-template-areas:
         "heading"
-        "paragraph"
         "media"
         "button"
         "stats";
@@ -668,6 +675,7 @@
       </div>
 
       <div class="hero-position" id="heroPosition">01 / 06</div>
+    </div>
 
       <div class="hero-controls">
         <button class="hero-arrow" id="heroPrev" aria-label="Previous slide">
@@ -688,7 +696,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
-    </div>
   </div>
 </section>
 
@@ -703,10 +710,6 @@
         <div><strong>1000+</strong><span>Projects delivered</span></div>
       </div>
       <a href="#contact" class="hero-cta" style="margin-top:32px;">Get in Touch</a>
-    </div>
-
-    <div class="orbit-wrap">
-      <img src="stat.jpg" alt="MAJ Media Digital results and stats" class="orbit-stat-img">
     </div>
   </div>
 </section>
@@ -745,9 +748,6 @@
     <div class="impact-card">
       <div class="impact-heading">
         <h2>Our Impact In Numbers</h2>
-      </div>
-      <div class="impact-paragraph">
-        <p>Every campaign we run is built to move the numbers that matter — reach, engagement, and revenue. Here's what that's added up to for the brands we work with.</p>
       </div>
       <div class="impact-stats">
         <div class="impact-stat">
@@ -795,7 +795,6 @@
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Our Services</span>
-      <h2>Everything a growing brand needs online</h2>
     </div>
     <div class="service-grid">
 
@@ -1069,13 +1068,32 @@
     function playVideo(i){ const v = slides[i].querySelector('video'); if (v) { v.currentTime = 0; v.play().catch(()=>{}); } }
     function pauseVideo(i){ const v = slides[i].querySelector('video'); if (v) v.pause(); }
 
+    const GAP = 14;
+    // slot: -1 = peeking left, 0 = active (centre), 1 = peeking right, -2 / 2 = waiting off-screen
+    function slotOf(i){ return ((i - current + 2 + total * 2) % total) - 2; }
+    let prevSlots = null;
+    function layout(instant){
+      const slots = slides.map((_, i) => slotOf(i));
+      slides.forEach((sl, i) => {
+        const slot = slots[i];
+        const wasVisible = prevSlots ? (prevSlots[i] >= -1 && prevSlots[i] <= 1) : false;
+        const willBeVisible = slot >= -1 && slot <= 1;
+        // slides wrapping around while hidden should jump, not sweep across the screen
+        const jump = instant || (prevSlots && !wasVisible && !willBeVisible);
+        sl.style.transition = jump ? 'none' : '';
+        sl.style.transform = 'translateX(calc(' + slot + ' * (100% + ' + GAP + 'px)))';
+        sl.classList.toggle('is-active', slot === 0);
+      });
+      if (instant) { void slides[0].offsetWidth; slides.forEach(sl => sl.style.transition = ''); }
+      prevSlots = slots;
+    }
+
     function goTo(index){
       pauseVideo(current);
-      slides[current].classList.remove('is-active');
       dots[current].classList.remove('is-active');
       current = (index + total) % total;
-      slides[current].classList.add('is-active');
       dots[current].classList.add('is-active');
+      layout(false);
       positionLabel.textContent = String(current+1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
       if (isPlaying) playVideo(current);
       resetTimer();
@@ -1095,6 +1113,21 @@
     playPauseBtn.addEventListener('click', () => setPlaying(!isPlaying));
     dots.forEach((dot,i) => dot.addEventListener('click', () => goTo(i)));
 
+    // tap the peeking video to bring it forward
+    slides.forEach((sl, i) => sl.addEventListener('click', () => { if (i !== current) goTo(i); }));
+
+    // swipe left / right
+    const swipeArea = document.getElementById('heroSlides');
+    let sx = null, sy = null;
+    swipeArea.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+    swipeArea.addEventListener('touchend', e => {
+      if (sx === null) return;
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { dx < 0 ? next() : prev(); }
+      sx = null;
+    }, {passive:true});
+
+    layout(true);
     positionLabel.textContent = '01 / ' + String(total).padStart(2,'0');
     playVideo(current);
     resetTimer();
