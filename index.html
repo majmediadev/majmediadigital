@@ -196,6 +196,50 @@
     background:linear-gradient(180deg, rgba(1,15,36,0.05) 0%, rgba(1,15,36,0) 40%, rgba(1,15,36,0.25) 100%);
   }
 
+  /* click-to-watch player (opens on the centre slide) */
+  .hero-slide.is-active{cursor:pointer;}
+  .hero-watch{
+    position:absolute;left:16px;bottom:16px;z-index:3;pointer-events:none;
+    display:inline-flex;align-items:center;gap:8px;padding:9px 14px 9px 11px;border-radius:999px;
+    background:rgba(1,15,36,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.01em;
+    opacity:0;transition:opacity .4s ease;
+  }
+  .hero-slide.is-active .hero-watch{opacity:1;}
+  .hero-watch svg{width:14px;height:14px;color:var(--gold-soft);}
+  .hero-player{position:absolute;inset:0;z-index:6;background:#000;color:#fff;cursor:pointer;animation:hpIn .3s ease;}
+  @keyframes hpIn{from{opacity:0}to{opacity:1}}
+  .hp-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;display:block;}
+  .hp-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:10px;padding:14px;
+    background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0));transition:opacity .3s ease;}
+  .hp-bar{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;
+    background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0));transition:opacity .3s ease;cursor:default;}
+  .hero-player.is-idle .hp-top,.hero-player.is-idle .hp-bar{opacity:0;pointer-events:none;}
+  .hp-btn{width:40px;height:40px;border-radius:50%;border:0;display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;
+    transition:background .2s ease,transform .2s ease;position:relative;}
+  .hp-btn:hover{background:rgba(255,255,255,.3);}
+  .hp-btn svg{width:18px;height:18px;}
+  .hp-btn .hp-n{position:absolute;font-size:8.5px;font-weight:800;line-height:1;top:50%;left:50%;transform:translate(-50%,-36%);}
+  .hp-main{width:52px;height:52px;background:var(--gold);color:var(--navy-deep);}
+  .hp-main:hover{background:var(--gold-soft);transform:scale(1.05);}
+  .hp-main svg{width:20px;height:20px;}
+  .hp-btnrow{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:8px;}
+  .hp-seekrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;}
+  .hp-seekrow span{min-width:34px;}
+  .hp-seekrow .hp-dur{text-align:right;}
+  .hp-seek{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:4px;outline:0;cursor:pointer;
+    background:linear-gradient(to right,var(--gold) var(--p,0%),rgba(255,255,255,.3) var(--p,0%));}
+  .hp-seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;border:0;box-shadow:0 1px 4px rgba(0,0,0,.4);}
+  .hp-seek::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:0;}
+  .hp-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);width:68px;height:68px;border-radius:50%;border:0;
+    display:flex;align-items:center;justify-content:center;background:rgba(1,15,36,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;
+    opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;}
+  .hp-center svg{width:26px;height:26px;}
+  .hero-player.is-paused .hp-center{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  .hero-player.is-paused .hp-center,.hero-player.is-paused{pointer-events:auto;}
+  .hp-center{cursor:pointer;}
+
   /* controls sit centred below the videos */
   .hero-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px;padding:0 20px;}
   .hero-arrow,.hero-playpause{
@@ -651,31 +695,31 @@
   <div class="hero-media">
     <div class="hero-media-inner">
       <div class="hero-slides" id="heroSlides">
-        <div class="hero-slide is-active" data-index="0">
+        <div class="hero-slide is-active" data-index="0" data-full="hero-slide-1-full.mp4">
           <video muted loop playsinline preload="metadata" poster="hero-slide-1-poster.jpg">
             <source media="(max-width: 640px)" src="hero-slide-1-m.mp4" type="video/mp4">
             <source src="hero-slide-1.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="hero-slide" data-index="1">
+        <div class="hero-slide" data-index="1" data-full="hero-slide-2-full.mp4">
           <video muted loop playsinline preload="metadata" poster="hero-slide-2-poster.jpg">
             <source media="(max-width: 640px)" src="hero-slide-2-m.mp4" type="video/mp4">
             <source src="hero-slide-2.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="hero-slide" data-index="2">
+        <div class="hero-slide" data-index="2" data-full="hero-slide-3-full.mp4">
           <video muted loop playsinline preload="metadata" poster="hero-slide-3-poster.jpg">
             <source media="(max-width: 640px)" src="hero-slide-3-m.mp4" type="video/mp4">
             <source src="hero-slide-3.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="hero-slide" data-index="3">
+        <div class="hero-slide" data-index="3" data-full="hero-slide-4-full.mp4">
           <video muted loop playsinline preload="metadata" poster="hero-slide-4-poster.jpg">
             <source media="(max-width: 640px)" src="hero-slide-4-m.mp4" type="video/mp4">
             <source src="hero-slide-4.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="hero-slide" data-index="4">
+        <div class="hero-slide" data-index="4" data-full="hero-slide-5-full.mp4">
           <video muted loop playsinline preload="metadata" poster="hero-slide-5-poster.jpg">
             <source media="(max-width: 640px)" src="hero-slide-5-m.mp4" type="video/mp4">
             <source src="hero-slide-5.mp4" type="video/mp4">
@@ -1093,7 +1137,7 @@
     const positionLabel = document.getElementById('heroPosition');
     const total = slides.length;
     const SLIDE_DURATION = 7000;
-    let current = 0, isPlaying = true, timer = null;
+    let current = 0, isPlaying = true, timer = null, playerOpen = false;
 
     function playVideo(i){ const v = slides[i].querySelector('video'); if (v) { v.currentTime = 0; v.play().catch(()=>{}); } }
     function pauseVideo(i){ const v = slides[i].querySelector('video'); if (v) v.pause(); }
@@ -1119,6 +1163,7 @@
     }
 
     function goTo(index){
+      if (playerOpen) closePlayer(true);
       pauseVideo(current);
       dots[current].classList.remove('is-active');
       current = (index + total) % total;
@@ -1132,6 +1177,7 @@
     function prev(){ goTo(current-1); }
     function resetTimer(){ clearInterval(timer); if (isPlaying) timer = setInterval(next, SLIDE_DURATION); }
     function setPlaying(state){
+      if (playerOpen) closePlayer(true);
       isPlaying = state;
       if (isPlaying){ playVideo(current); iconPause.style.display='block'; iconPlay.style.display='none'; playPauseBtn.setAttribute('aria-label','Pause slideshow'); }
       else { pauseVideo(current); iconPause.style.display='none'; iconPlay.style.display='block'; playPauseBtn.setAttribute('aria-label','Play slideshow'); }
@@ -1144,7 +1190,157 @@
     dots.forEach((dot,i) => dot.addEventListener('click', () => goTo(i)));
 
     // tap the peeking video to bring it forward
-    slides.forEach((sl, i) => sl.addEventListener('click', () => { if (i !== current) goTo(i); }));
+    slides.forEach((sl, i) => sl.addEventListener('click', () => { if (i !== current) goTo(i); else if (!playerOpen) openPlayer(); }));
+
+    // ---------- click-to-watch player: sound on/off, time, seek, +/- skip ----------
+    const I = {
+      play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5l12 7-12 7z"/></svg>',
+      pause:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>',
+      soundOn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>',
+      soundOff:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="M22 9l-6 6M16 9l6 6"/></svg>',
+      close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+      back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>',
+      fwd:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>'
+    };
+    // small "watch with sound" hint on each slide (shows on the centre one)
+    slides.forEach(sl => {
+      const h = document.createElement('span');
+      h.className = 'hero-watch';
+      h.innerHTML = I.play + 'Tap to watch with sound';
+      sl.appendChild(h);
+    });
+
+    let ui = null, pv = null, idleT = null, dragging = false, usingFull = false, step = 5;
+    const fmt = t => { t = isFinite(t) ? Math.max(0, Math.floor(t)) : 0; return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); };
+
+    function buildPlayer(){
+      const el = document.createElement('div');
+      el.className = 'hero-player';
+      el.innerHTML =
+        '<video class="hp-video" playsinline preload="none"></video>' +
+        '<div class="hp-top">' +
+          '<button type="button" class="hp-btn hp-sound" aria-label="Turn sound off"></button>' +
+          '<button type="button" class="hp-btn hp-close" aria-label="Close player">' + I.close + '</button>' +
+        '</div>' +
+        '<button type="button" class="hp-center" aria-label="Play"></button>' +
+        '<div class="hp-bar">' +
+          '<div class="hp-seekrow"><span class="hp-cur">0:00</span><input class="hp-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek"><span class="hp-dur">0:00</span></div>' +
+          '<div class="hp-btnrow">' +
+            '<button type="button" class="hp-btn hp-back" aria-label="Go back">' + I.back + '<span class="hp-n">5</span></button>' +
+            '<button type="button" class="hp-btn hp-main" aria-label="Pause"></button>' +
+            '<button type="button" class="hp-btn hp-fwd" aria-label="Go forward">' + I.fwd + '<span class="hp-n">5</span></button>' +
+          '</div>' +
+        '</div>';
+      const q = sel => el.querySelector(sel);
+      ui = { el, video:q('.hp-video'), sound:q('.hp-sound'), close:q('.hp-close'), center:q('.hp-center'),
+             cur:q('.hp-cur'), dur:q('.hp-dur'), seek:q('.hp-seek'), back:q('.hp-back'), main:q('.hp-main'), fwd:q('.hp-fwd') };
+      pv = ui.video;
+
+      const wake = () => {
+        el.classList.remove('is-idle');
+        clearTimeout(idleT);
+        if (!pv.paused) idleT = setTimeout(() => el.classList.add('is-idle'), 3000);
+      };
+      const toggle = () => { pv.paused ? pv.play().catch(()=>{}) : pv.pause(); };
+      const skip = d => { if (isFinite(pv.duration)) pv.currentTime = Math.min(pv.duration, Math.max(0, pv.currentTime + d)); wake(); };
+      const paint = () => {
+        const d = pv.duration, t = pv.currentTime;
+        if (!dragging && isFinite(d) && d > 0) { ui.seek.value = Math.round(t / d * 1000); }
+        ui.seek.style.setProperty('--p', (ui.seek.value / 10) + '%');
+        ui.cur.textContent = fmt(t);
+        ui.dur.textContent = fmt(d);
+      };
+      const paintSound = () => {
+        ui.sound.innerHTML = pv.muted ? I.soundOff : I.soundOn;
+        ui.sound.setAttribute('aria-label', pv.muted ? 'Turn sound on' : 'Turn sound off');
+      };
+      const paintPlay = () => {
+        const paused = pv.paused;
+        el.classList.toggle('is-paused', paused);
+        ui.main.innerHTML = paused ? I.play : I.pause;
+        ui.main.setAttribute('aria-label', paused ? 'Play' : 'Pause');
+        ui.center.innerHTML = I.play;
+        wake();
+      };
+
+      pv.addEventListener('timeupdate', paint);
+      pv.addEventListener('durationchange', () => {
+        step = (isFinite(pv.duration) && pv.duration > 30) ? 10 : 5;
+        el.querySelectorAll('.hp-n').forEach(n => n.textContent = step);
+        ui.back.setAttribute('aria-label', 'Back ' + step + ' seconds');
+        ui.fwd.setAttribute('aria-label', 'Forward ' + step + ' seconds');
+        paint();
+      });
+      pv.addEventListener('play', paintPlay);
+      pv.addEventListener('pause', paintPlay);
+      pv.addEventListener('ended', paintPlay);
+      pv.addEventListener('volumechange', paintSound);
+      // if the full-length file is not there, fall back to the slide's own clip
+      pv.addEventListener('error', () => {
+        if (!usingFull) return;
+        usingFull = false;
+        const amb = slides[current].querySelector('video:not(.hp-video)');
+        pv.loop = true;
+        pv.src = amb.currentSrc || amb.src;
+        pv.load();
+        pv.play().catch(() => { pv.muted = true; pv.play().catch(()=>{}); });
+      });
+
+      ui.sound.addEventListener('click', e => { e.stopPropagation(); pv.muted = !pv.muted; if (!pv.muted && pv.paused) pv.play().catch(()=>{}); wake(); });
+      ui.close.addEventListener('click', e => { e.stopPropagation(); closePlayer(); });
+      ui.main.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+      ui.center.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+      ui.back.addEventListener('click', e => { e.stopPropagation(); skip(-step); });
+      ui.fwd.addEventListener('click', e => { e.stopPropagation(); skip(step); });
+      ui.seek.addEventListener('input', () => {
+        if (isFinite(pv.duration)) pv.currentTime = ui.seek.value / 1000 * pv.duration;
+        paint(); wake();
+      });
+      ['pointerdown','touchstart'].forEach(ev => ui.seek.addEventListener(ev, () => { dragging = true; }, {passive:true}));
+      ['pointerup','touchend','change'].forEach(ev => ui.seek.addEventListener(ev, () => { dragging = false; }, {passive:true}));
+      // controls must not trigger the slide swipe / slide click
+      el.querySelector('.hp-bar').addEventListener('touchstart', e => e.stopPropagation(), {passive:true});
+      el.querySelector('.hp-bar').addEventListener('touchend', e => e.stopPropagation(), {passive:true});
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        if (el.classList.contains('is-idle')) { wake(); return; }   // first tap just reveals the controls
+        toggle();
+      });
+      el.addEventListener('mousemove', wake);
+      paintSound(); paintPlay();
+    }
+
+    function openPlayer(){
+      if (playerOpen) return;
+      playerOpen = true;
+      clearInterval(timer);
+      pauseVideo(current);
+      if (!ui) buildPlayer();
+      const sl = slides[current], amb = sl.querySelector('video:not(.hp-video)');
+      sl.appendChild(ui.el);
+      ui.el.classList.remove('is-idle');
+      pv.poster = amb.getAttribute('poster') || '';
+      pv.muted = false;
+      const full = sl.dataset.full;
+      usingFull = !!full;
+      pv.loop = !full;
+      pv.src = full || amb.currentSrc || amb.src;
+      pv.load();
+      pv.play().catch(() => { pv.muted = true; pv.play().catch(()=>{}); });
+    }
+    function closePlayer(skipResume){
+      if (!playerOpen) return;
+      playerOpen = false;
+      clearTimeout(idleT);
+      pv.pause(); pv.removeAttribute('src'); pv.load();
+      ui.el.remove();
+      if (!skipResume){ if (isPlaying) playVideo(current); resetTimer(); }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePlayer(); });
+    // leave the player when the hero scrolls out of view
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(es => { if (!es[0].isIntersecting) closePlayer(); }, {threshold:0.15}).observe(document.getElementById('heroSlides'));
+    }
 
     // swipe left / right
     const swipeArea = document.getElementById('heroSlides');
