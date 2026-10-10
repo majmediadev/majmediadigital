@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +48,7 @@
     --shadow-soft:0 20px 50px -20px rgba(1,15,36,0.18);
     --shadow-card:0 12px 30px -14px rgba(1,15,36,0.16);
   }
-
+ 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -73,7 +74,7 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}}
-
+ 
   /* ---------- Header ---------- */
   .site-header{
     position:fixed;top:0;left:0;right:0;z-index:100;
@@ -102,7 +103,7 @@
   nav.primary-nav a:hover{color:var(--navy);border-color:var(--gold);}
   .site-header.scrolled nav.primary-nav a{color:var(--ink-soft);}
   .site-header.scrolled nav.primary-nav a:hover{color:var(--navy);border-color:var(--gold);}
-
+ 
   /* Services dropdown */
   .nav-dropdown{position:relative;}
   .nav-dropdown-toggle{
@@ -149,7 +150,7 @@
   .site-header.scrolled .nav-toggle span,
   .site-header.scrolled .nav-toggle span::before,
   .site-header.scrolled .nav-toggle span::after{background:var(--navy);}
-
+ 
   /* ---------- Hero / Video Carousel ---------- */
   .hero{position:relative;background:var(--white);padding:152px 0 88px;}
   .hero-content{
@@ -168,7 +169,7 @@
     transition:background 0.2s ease, transform 0.2s ease;
   }
   .hero-cta:hover{background:var(--gold-soft);transform:translateY(-1px);}
-
+ 
   /* Video panel — sits BELOW the hero text, not behind it */
   /* Active video centred; half of the neighbouring video peeks in on both sides */
   .hero-media{
@@ -195,7 +196,7 @@
     content:'';position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(180deg, rgba(1,15,36,0.05) 0%, rgba(1,15,36,0) 40%, rgba(1,15,36,0.25) 100%);
   }
-
+ 
   /* controls sit centred below the videos */
   .hero-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px;padding:0 20px;}
   .hero-arrow,.hero-playpause{
@@ -224,7 +225,7 @@
     .hero-slide{border-radius:var(--radius-md);}
     .hero-controls{gap:14px;margin-top:18px;}
   }
-
+ 
   /* ---------- Section shells ---------- */
   section{padding:100px 0;position:relative;}
   .section-head{max-width:640px;margin-bottom:56px;}
@@ -235,7 +236,7 @@
   .section-head .services-title::after{content:'';position:absolute;left:0;bottom:0;width:72px;height:5px;border-radius:3px;background:var(--gold);}
   .section-head p{margin-top:18px;color:var(--ink-soft);font-size:16.5px;max-width:52ch;}
   .section-head.center p{margin-left:auto;margin-right:auto;}
-
+ 
   /* ---------- Platform orbit band ---------- */
   .orbit-section{background:var(--white);overflow:hidden;}
   .orbit-section::before{
@@ -254,14 +255,14 @@
   .orbit-stat-line{margin-top:30px;display:flex;gap:34px;}
   .orbit-stat-line div strong{display:block;font-family:var(--font-display);font-weight:800;font-size:30px;color:var(--navy);}
   .orbit-stat-line div span{font-size:13px;color:var(--ink-soft);}
-
+ 
   .orbit-wrap{position:relative;width:100%;max-width:420px;margin:0 auto;}
   .orbit-stat-img{width:100%;height:auto;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);display:block;}
   @media(max-width:900px){
     .orbit-grid{grid-template-columns:1fr;gap:52px;}
     .orbit-wrap{max-width:340px;}
   }
-
+ 
   /* ---------- Logos row ---------- */
   .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;}
   .logos .wrap{display:flex;flex-direction:column;gap:18px;}
@@ -286,7 +287,7 @@
     .logo-track{gap:44px;}
     .logo-track img{height:34px;max-width:110px;}
   }
-
+ 
   /* ---------- Impact card (numbers section) ---------- */
   .stats{background:var(--white);}
   .impact-card{
@@ -352,7 +353,7 @@
     .impact-heading h2{max-width:none;}
     .impact-media{min-height:220px;}
   }
-
+ 
   /* ---------- Philosophy / Who We Are ---------- */
   .philosophy{background:var(--paper);}
   .philosophy-grid{max-width:760px;margin:0 auto;text-align:left;}
@@ -363,7 +364,7 @@
     border-left:2px solid var(--gold);padding-left:20px;margin:26px 0;
     max-width:60ch;
   }
-
+ 
   /* ---------- Services ---------- */
   .services{background:var(--white);}
   .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -391,7 +392,7 @@
   .service-card:hover .service-link svg{transform:translateX(3px);}
   @media(max-width:900px){.service-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.service-grid{grid-template-columns:1fr;}}
-
+ 
   /* ---------- Testimonials (swiper) ---------- */
   .testimonials{background:var(--paper);}
   .swiper-viewport{overflow:hidden;}
@@ -430,7 +431,7 @@
   .swiper-dots{display:flex;gap:8px;}
   .swiper-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:none;padding:0;transition:background 0.25s ease, transform 0.25s ease;}
   .swiper-dot.is-active{background:var(--gold);transform:scale(1.4);}
-
+ 
   /* ---------- Case studies ---------- */
   .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .case-card{
@@ -459,7 +460,7 @@
   .case-card:hover .case-view svg{transform:translateX(2px);}
   @media(max-width:900px){.case-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:560px){.case-grid{grid-template-columns:1fr;}}
-
+ 
   /* ---------- Contact ---------- */
   .contact{background:var(--white);border-top:1px solid var(--line);}
   .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;position:relative;z-index:1;}
@@ -486,7 +487,7 @@
   }
   .submit-btn:hover{background:var(--navy-deep);}
   @media(max-width:820px){.contact-inner{grid-template-columns:1fr;gap:40px;}}
-
+ 
   /* ---------- Footer ---------- */
   footer{background:var(--white);border-top:1px solid var(--line);padding:56px 0 30px;}
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;padding-bottom:40px;}
@@ -508,7 +509,7 @@
   }
   .social-icons a:hover{border-color:var(--gold);color:var(--white);background:var(--gold);}
   .social-icons svg{width:16px;height:16px;}
-
+ 
   /* ---------- WhatsApp floating button ---------- */
   .wa-float{
     position:fixed;right:26px;bottom:26px;z-index:200;width:58px;height:58px;border-radius:50%;
@@ -517,7 +518,7 @@
   }
   .wa-float:hover{transform:scale(1.06);}
   .wa-float svg{width:28px;height:28px;fill:#fff;}
-
+ 
   /* ---------- Mobile nav (top dropdown) ---------- */
   @media(max-width:900px){
     .header-inner{padding:16px 20px;}
@@ -555,7 +556,7 @@
       color:var(--ink-soft);font-size:14.5px;font-weight:500;
       padding:9px 0;border-radius:0;
     }
-
+ 
     nav.primary-nav a.mobile-nav-cta{
       display:inline-flex;align-items:center;justify-content:space-between;gap:14px;
       align-self:center;width:fit-content;
@@ -579,7 +580,7 @@
     .nav-toggle.is-active span::before,
     .nav-toggle.is-active span::after{background:var(--navy);}
   }
-
+ 
   /* ---------- Contact ---------- */
   .contact-section{background:var(--navy-tint);padding:96px 0;}
   .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start;}
@@ -593,6 +594,8 @@
   .contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .contact-form label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--navy);}
   .contact-form input,.contact-form textarea{font:inherit;font-weight:400;font-size:15px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:100%;}
+  .contact-form select{font:inherit;font-weight:400;font-size:15px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:100%;}
+  .contact-form select:focus{outline:2px solid var(--gold);outline-offset:1px;background:var(--white);}
   .contact-form textarea{min-height:130px;resize:vertical;}
   .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px;background:var(--white);}
   .contact-form button{justify-self:start;border:0;cursor:pointer;background:var(--gold);color:var(--navy-deep);font:inherit;font-weight:700;font-size:15px;padding:14px 30px;border-radius:999px;transition:background .2s ease,transform .2s ease;}
@@ -601,7 +604,7 @@
 </style>
 </head>
 <body>
-
+ 
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="#home" class="logo"><img src="logo.jpg" alt="MAJ Media Digital logo" class="logo-img">MAJ <span>Media Digital</span></a>
@@ -622,7 +625,7 @@
         </div>
       </div>
       <a href="/about">About</a>
-      <a href="/case-studies">Case Studies</a>
+      <a href="/case-studies">Projects</a>
       <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="mobile-nav-cta">Get in Touch
@@ -635,7 +638,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
-
+ 
 <!-- ================= HERO / VIDEO CAROUSEL ================= -->
 <section class="hero" id="home">
   <div class="hero-content">
@@ -645,7 +648,7 @@
     <p class="body-copy">We help brands get seen by the right audience online, stay remembered, and turn that attention into measurable growth.</p>
     <a href="#contact" class="hero-cta">Get in Touch</a>
   </div>
-
+ 
   <div class="hero-media">
     <div class="hero-media-inner">
       <div class="hero-slides" id="heroSlides">
@@ -680,10 +683,10 @@
           </video>
         </div>
       </div>
-
+ 
       <div class="hero-position" id="heroPosition">01 / 06</div>
     </div>
-
+ 
       <div class="hero-controls">
         <button class="hero-arrow" id="heroPrev" aria-label="Previous slide">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -705,7 +708,7 @@
       </div>
   </div>
 </section>
-
+ 
 <!-- ================= PLATFORM ORBIT BAND ================= -->
 <section class="orbit-section">
   <div class="wrap orbit-grid">
@@ -720,7 +723,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= LOGOS ================= -->
 <section class="logos">
   <div class="wrap">
@@ -748,7 +751,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= IMPACT NUMBERS ================= -->
 <section class="stats">
   <div class="wrap">
@@ -783,7 +786,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= PHILOSOPHY / WHO WE ARE ================= -->
 <section class="philosophy" id="about">
   <div class="wrap philosophy-grid">
@@ -796,7 +799,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= SERVICES ================= -->
 <section class="services" id="services">
   <div class="wrap">
@@ -804,60 +807,60 @@
       <h2 class="services-title">Our Services</h2>
     </div>
     <div class="service-grid">
-
+ 
       <div class="service-card tint-navy">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.7M8.6 13.4l6.8 3.7"/></svg></div>
         <h3>Social Media Management</h3>
         <p>We manage the presence of your brand on social media including strategy, content creation, campaign planning, ads setup and more. It’s not just posting alone.</p>
         <a href="/social-media-management" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
       <div class="service-card tint-gold">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 9l4-2v10l-4-2"/></svg></div>
         <h3>Content Creation</h3>
         <p>Custom, engaging content, created to fit your brand’s goal &amp; audience. You pick the date and we arrive to produce brand strengthening content that increases audience interest.</p>
         <a href="/content-creation" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
       <div class="service-card tint-paper">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-7-7 18-2.5-7.5L3 11z"/></svg></div>
         <h3>Performance Marketing</h3>
         <p>We plan and manage ad campaigns that target the right audience while controlling the costs and optimizing for best results.</p>
         <a href="/ads-management" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
       <div class="service-card tint-paper">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></div>
         <h3>Branding</h3>
         <p>We create clean, memorable visual identity, and brand assets that create consistency, credibility, and recognition.</p>
         <a href="/branding" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
       <div class="service-card tint-navy">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M17 14.2c2.4.2 4.3 2.2 4.3 4.8"/></svg></div>
         <h3>Influencer Management &amp; Partnerships</h3>
         <p>Strategic creator partnerships that build trust and drive demand.</p>
         <a href="/influencer-management" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
       <div class="service-card tint-gold">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4-8 4-8-4 8-4Z"/><path d="M4 11v6l8 4 8-4v-6"/></svg></div>
         <h3>Training — MAJ Media Academy</h3>
         <p>We provide practical social media training through private sessions and cohort-based programs for individuals, teams, and businesses, helping them master in-demand skills.</p>
         <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
       <div class="service-card tint-navy service-cta-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
         <h3>Ready to start?</h3>
         <p>Tell us about your brand and where you want it to go — we'll map out the right mix of services.</p>
         <a href="#contact" class="service-link">Get in Touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= TESTIMONIALS ================= -->
 <section class="testimonials">
   <div class="wrap">
@@ -929,7 +932,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= CASE STUDIES ================= -->
 <section id="case-studies">
   <div class="wrap">
@@ -978,22 +981,50 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ================= CONTACT ================= -->
 <section class="contact-section" id="contact">
   <div class="wrap contact-grid">
     <div class="contact-copy">
       <span class="kicker" style="display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px;">Contact Us</span>
-      <h2>Let’s talk about your brand</h2>
-      <p>Tell us about your brand and where you want it to go. Send us a message, or reach us directly on WhatsApp or email.</p>
+      <h2>Got big plans for your business? Let’s put them online.</h2>
+      <p>Tell us about your brand and where you want it to go, and we can tailor your discovery call to your specific needs.</p>
       <div class="contact-links">
         <a href="https://wa.me/2348108427617" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.36 5.13L2 22l5.1-1.44a9.9 9.9 0 0 0 4.94 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Z"/></svg></span>WhatsApp: +234 810 842 7617</a>
         <a href="mailto:hello@majmediadigital.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>hello@majmediadigital.com</a>
       </div>
     </div>
+    <form class="contact-form" id="contactForm" novalidate>
+      <!-- Not connected to any backend yet -->
+      <div class="row">
+        <label>Full Name *<input type="text" name="full_name" required autocomplete="name"></label>
+        <label>Email Address *<input type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label>Business Industry *<input type="text" name="industry" required></label>
+        <label>Company Name *<input type="text" name="company" required autocomplete="organization"></label>
+      </div>
+      <div class="row">
+        <label>Existing Social Media Pages *<input type="text" name="social_pages" required></label>
+        <label>Phone Number *<input type="tel" name="phone" required autocomplete="tel"></label>
+      </div>
+      <label>Service Needed *
+        <select name="service" required>
+          <option value="" selected disabled>Select a service</option>
+          <option>Social Media Management</option>
+          <option>Content Creation</option>
+          <option>Performance Marketing</option>
+          <option>Branding</option>
+          <option>Influencer Management &amp; Partnerships</option>
+          <option>Training — MAJ Media Academy</option>
+        </select>
+      </label>
+      <label>Message *<textarea name="message" required></textarea></label>
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </section>
-
+ 
 <!-- ================= FOOTER ================= -->
 <footer id="footer">
   <div class="wrap">
@@ -1008,7 +1039,7 @@
           <a href="#home">Home</a>
           <a href="#services">Services</a>
           <a href="/about">About</a>
-          <a href="/case-studies">Case Studies</a>
+          <a href="/case-studies">Projects</a>
           <a href="https://academy.majmediadigital.com" target="_blank" rel="noopener">Academy</a>
         </div>
         <div class="footer-col">
@@ -1038,15 +1069,15 @@
     </div>
   </div>
 </footer>
-
+ 
 <a class="wa-float" href="https://wa.me/2348108427617" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.36 5.13L2 22l5.1-1.44a9.9 9.9 0 0 0 4.94 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.72 14.12c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.26-3.5-.73-2.98-1.19-4.9-4.24-5.05-4.44-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.46.27-.29.6-.36.8-.36h.58c.19 0 .44-.02.66.51.24.58.8 2.02.87 2.17.07.14.12.32.02.51-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.27 1.64 2.06 1.13 1.02 2.07 1.34 2.37 1.49.29.15.46.13.63-.08.17-.2.72-.85.91-1.14.19-.29.39-.24.66-.14.27.1 1.7.81 2 .96.29.14.48.22.55.34.07.13.07.73-.17 1.4Z"/></svg>
 </a>
-
+ 
 <script>
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
-
+ 
   const navToggle = document.getElementById('navToggle');
   const primaryNav = document.getElementById('primaryNav');
   navToggle.addEventListener('click', () => {
@@ -1058,7 +1089,7 @@
     primaryNav.classList.remove('is-open');
     navToggle.classList.remove('is-active');
   }));
-
+ 
   document.querySelectorAll('.nav-dropdown').forEach(dd => {
     const toggle = dd.querySelector('.nav-dropdown-toggle');
     toggle.addEventListener('click', () => {
@@ -1066,7 +1097,7 @@
       toggle.setAttribute('aria-expanded', open);
     });
   });
-
+ 
   (function heroCarousel(){
     const slides = Array.from(document.querySelectorAll('.hero-slide'));
     const dots = Array.from(document.querySelectorAll('.hero-dot'));
@@ -1079,10 +1110,10 @@
     const total = slides.length;
     const SLIDE_DURATION = 7000;
     let current = 0, isPlaying = true, timer = null;
-
+ 
     function playVideo(i){ const v = slides[i].querySelector('video'); if (v) { v.currentTime = 0; v.play().catch(()=>{}); } }
     function pauseVideo(i){ const v = slides[i].querySelector('video'); if (v) v.pause(); }
-
+ 
     const GAP = 14;
     // slot: -1 = peeking left, 0 = active (centre), 1 = peeking right, -2 / 2 = waiting off-screen
     function slotOf(i){ return ((i - current + 2 + total * 2) % total) - 2; }
@@ -1102,7 +1133,7 @@
       if (instant) { void slides[0].offsetWidth; slides.forEach(sl => sl.style.transition = ''); }
       prevSlots = slots;
     }
-
+ 
     function goTo(index){
       pauseVideo(current);
       dots[current].classList.remove('is-active');
@@ -1122,15 +1153,15 @@
       else { pauseVideo(current); iconPause.style.display='none'; iconPlay.style.display='block'; playPauseBtn.setAttribute('aria-label','Play slideshow'); }
       resetTimer();
     }
-
+ 
     nextBtn.addEventListener('click', next);
     prevBtn.addEventListener('click', prev);
     playPauseBtn.addEventListener('click', () => setPlaying(!isPlaying));
     dots.forEach((dot,i) => dot.addEventListener('click', () => goTo(i)));
-
+ 
     // tap the peeking video to bring it forward
     slides.forEach((sl, i) => sl.addEventListener('click', () => { if (i !== current) goTo(i); }));
-
+ 
     // swipe left / right
     const swipeArea = document.getElementById('heroSlides');
     let sx = null, sy = null;
@@ -1141,13 +1172,13 @@
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { dx < 0 ? next() : prev(); }
       sx = null;
     }, {passive:true});
-
+ 
     layout(true);
     positionLabel.textContent = '01 / ' + String(total).padStart(2,'0');
     playVideo(current);
     resetTimer();
   })();
-
+ 
   (function testimonialSwiper(){
     const track = document.getElementById('quoteTrack');
     const cards = Array.from(track.querySelectorAll('.quote-card'));
@@ -1155,17 +1186,17 @@
     const prevBtn = document.getElementById('quotePrev');
     const nextBtn = document.getElementById('quoteNext');
     let current = 0;
-
+ 
     function goTo(index){
       current = Math.max(0, Math.min(index, cards.length - 1));
       cards[current].scrollIntoView({behavior:'smooth', inline:'start', block:'nearest'});
       dots.forEach((d,i) => d.classList.toggle('is-active', i === current));
     }
-
+ 
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
     dots.forEach((dot,i) => dot.addEventListener('click', () => goTo(i)));
-
+ 
     // Keep dots in sync when the person swipes by hand
     let scrollTimer = null;
     track.addEventListener('scroll', () => {
@@ -1183,6 +1214,10 @@
     });
   })();
 </script>
-
+ 
+<script>
+  // Contact form is a placeholder for now: not connected to any backend.
+  document.getElementById('contactForm').addEventListener('submit', e => e.preventDefault());
+</script>
 </body>
 </html>
