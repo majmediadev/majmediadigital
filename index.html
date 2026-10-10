@@ -1206,7 +1206,7 @@
     slides.forEach(sl => {
       const h = document.createElement('span');
       h.className = 'hero-watch';
-      h.innerHTML = I.play + 'Tap to watch with sound';
+      h.innerHTML = I.play + 'Tap to watch';
       sl.appendChild(h);
     });
 
@@ -1263,6 +1263,16 @@
         wake();
       };
 
+      // hide the sound icon when the video has no audio track (only hides on clear evidence)
+      const noAudio = () => {
+        if (pv.mozHasAudio === false) return true;
+        if (pv.audioTracks && pv.audioTracks.length === 0 && pv.readyState >= 1) return true;
+        if (typeof pv.webkitAudioDecodedByteCount === 'number' && pv.currentTime > 1 && pv.webkitAudioDecodedByteCount === 0) return true;
+        return false;
+      };
+      const checkAudio = () => { ui.sound.style.display = noAudio() ? 'none' : ''; };
+      pv.addEventListener('loadedmetadata', checkAudio);
+      pv.addEventListener('timeupdate', () => { if (pv.currentTime < 3) checkAudio(); });
       pv.addEventListener('timeupdate', paint);
       pv.addEventListener('durationchange', () => {
         step = (isFinite(pv.duration) && pv.duration > 30) ? 10 : 5;
@@ -1319,6 +1329,7 @@
       const sl = slides[current], amb = sl.querySelector('video:not(.hp-video)');
       sl.appendChild(ui.el);
       ui.el.classList.remove('is-idle');
+      ui.sound.style.display = '';
       pv.poster = amb.getAttribute('poster') || '';
       pv.muted = false;
       const full = sl.dataset.full;
