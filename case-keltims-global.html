@@ -269,12 +269,11 @@
 </header>
 
 
-<section class="case-hero">
+<section class="case-hero no-media">
   <div class="wrap">
     <p class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / Keltims Global</p>
     <span class="tag-pill">Social Media Marketing</span>
     <h1>Construction Brand: How we built a converting social media presence from scratch for Keltims Global</h1>
-    <div class="case-hero-media"><img src="Keltim_Global_Case_study.jpg" alt="Keltims Global case study"></div>
   </div>
 </section>
 
@@ -282,7 +281,7 @@
   <div class="wrap">
     <span class="section-kicker">See the Work</span>
     <div class="media-grid">
-      <figure class="media-item" data-media="Keltims video" data-exts="mov,mp4"><figcaption>Keltims Global — case study video</figcaption></figure>
+      <figure class="media-item" data-media="Keltims video" data-exts="mov,mp4"></figure>
     </div>
 
     <div class="case-meta-grid">
@@ -407,15 +406,15 @@
 
   // Loads media whose extension isn't known yet; hides the block if the file isn't in the repo.
   document.querySelectorAll('[data-media]').forEach(fig => {
-    const base = fig.dataset.media, exts = fig.dataset.exts.split(','), cap = fig.querySelector('figcaption');
+    const base = fig.dataset.media, exts = fig.dataset.exts.split(','), cap = null;
     let i = 0;
     const next = () => {
       if (i >= exts.length) { fig.remove(); return; }
       const ext = exts[i++].toLowerCase(), url = encodeURI(base + '.' + ext);
       const isVid = ['mov','mp4','webm'].includes(ext);
       const el = document.createElement(isVid ? 'video' : 'img');
-      if (isVid) { el.controls = true; el.playsInline = true; el.preload = 'metadata'; el.src = url + '#t=0.1'; el.addEventListener('loadedmetadata', () => { fig.insertBefore(el, cap); fig.classList.add('ready'); }); }
-      else { el.alt = base; el.src = url; el.addEventListener('load', () => { fig.insertBefore(el, cap); fig.classList.add('ready'); }); }
+      if (isVid) { el.controls = true; el.playsInline = true; el.preload = 'metadata'; el.src = url + '#t=0.1'; el.addEventListener('loadedmetadata', () => { fig.appendChild(el); fig.classList.add('ready'); }); }
+      else { el.alt = base; el.src = url; el.addEventListener('load', () => { fig.appendChild(el); fig.classList.add('ready'); }); }
       el.addEventListener('error', next);
     };
     next();

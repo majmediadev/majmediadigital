@@ -280,8 +280,8 @@
   <div class="wrap">
     <span class="section-kicker">See the Work</span>
     <div class="media-grid">
-      <figure class="media-item" data-media="Hotel buffet" data-exts="jpg,jpeg,png,mp4,mov"><figcaption>Hotel buffet</figcaption></figure>
-      <figure class="media-item"><a href="Limeridge%20feed.jpg" target="_blank" rel="noopener"><img src="Limeridge%20feed.jpg" alt="Limeridge Signature Hotel Instagram feed" loading="lazy"></a><figcaption>Instagram feed — Limeridge Signature Hotel</figcaption></figure>
+      <figure class="media-item" data-media="Hotel buffet" data-exts="jpg,jpeg,png,mp4,mov"></figure>
+      <figure class="media-item"><a href="Limeridge%20feed.jpg" target="_blank" rel="noopener"><img src="Limeridge%20feed.jpg" alt="Limeridge Signature Hotel Instagram feed" loading="lazy"></a></figure>
     </div>
 
     <div class="case-meta-grid">
@@ -402,15 +402,15 @@
 
   // Loads media whose extension isn't known yet; hides the block if the file isn't in the repo.
   document.querySelectorAll('[data-media]').forEach(fig => {
-    const base = fig.dataset.media, exts = fig.dataset.exts.split(','), cap = fig.querySelector('figcaption');
+    const base = fig.dataset.media, exts = fig.dataset.exts.split(','), cap = null;
     let i = 0;
     const next = () => {
       if (i >= exts.length) { fig.remove(); return; }
       const ext = exts[i++].toLowerCase(), url = encodeURI(base + '.' + ext);
       const isVid = ['mov','mp4','webm'].includes(ext);
       const el = document.createElement(isVid ? 'video' : 'img');
-      if (isVid) { el.controls = true; el.playsInline = true; el.preload = 'metadata'; el.src = url + '#t=0.1'; el.addEventListener('loadedmetadata', () => { fig.insertBefore(el, cap); fig.classList.add('ready'); }); }
-      else { el.alt = base; el.src = url; el.addEventListener('load', () => { fig.insertBefore(el, cap); fig.classList.add('ready'); }); }
+      if (isVid) { el.controls = true; el.playsInline = true; el.preload = 'metadata'; el.src = url + '#t=0.1'; el.addEventListener('loadedmetadata', () => { fig.appendChild(el); fig.classList.add('ready'); }); }
+      else { el.alt = base; el.src = url; el.addEventListener('load', () => { fig.appendChild(el); fig.classList.add('ready'); }); }
       el.addEventListener('error', next);
     };
     next();
