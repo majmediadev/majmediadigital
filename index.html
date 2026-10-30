@@ -1024,7 +1024,6 @@
       </div>
     </div>
     <form class="contact-form" id="contactForm" novalidate>
-      <!-- Not connected to any backend yet -->
       <div class="row">
         <label>Full Name *<input type="text" name="full_name" required autocomplete="name"></label>
         <label>Email Address *<input type="email" name="email" required autocomplete="email"></label>
@@ -1049,7 +1048,9 @@
         </select>
       </label>
       <label>Message *<textarea name="message" required></textarea></label>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
       <button type="submit">Submit</button>
+      <p id="formStatus" role="status" style="margin-top:14px;font-weight:600;display:none;"></p>
     </form>
   </div>
 </section>
@@ -1409,7 +1410,24 @@
 
 <script>
   // Contact form is a placeholder for now: not connected to any backend.
-  document.getElementById('contactForm').addEventListener('submit', e => e.preventDefault());
+  // Paste your Google Apps Script web app URL here (see apps-script.gs)
+  const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxcWwrrc67keJKHZ3K7oCYVfqdpG10qnlUoWBK8O7GHYi2-UeWLrze3OJ8x_3PTCH13/exec';
+  document.getElementById('contactForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.target, status = document.getElementById('formStatus'), btn = form.querySelector('button[type=submit]');
+    const show = (msg, ok) => { status.textContent = msg; status.style.color = ok ? '#1a7f4b' : '#b3261e'; status.style.display = 'block'; };
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (form.website.value) return; // spam trap
+    if (SHEET_ENDPOINT.indexOf('PASTE_') === 0) { show('Form is not connected yet.', false); return; }
+    btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending...';
+    try {
+      await fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) });
+      form.reset();
+      show("Thank you! We've received your details and will be in touch shortly.", true);
+    } catch (err) {
+      show('Something went wrong. Please try again or message us on WhatsApp.', false);
+    } finally { btn.disabled = false; btn.textContent = label; }
+  });
 </script>
 </body>
 </html>
